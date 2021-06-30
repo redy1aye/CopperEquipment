@@ -1,5 +1,5 @@
 {
-    "type": "minecraft:crafting_shaped",
+    "type": "crafting_shaped",
     "pattern": [
         "c",
         "c",
@@ -7,10 +7,10 @@
     ],
     "key": {
         "c": {
-            "item": "minecraft:copper_ingot"
+            "item": "copper_ingot"
         },
         "/": {
-            "item": "minecraft:stick"
+            "item": "stick"
         }
     },
   "result": {
