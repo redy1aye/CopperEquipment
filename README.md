@@ -1,9 +1,7 @@
-# Fabric Mod
+# Copper Equipment Mod (Fabric)
 
-## Setup
+![](https://i.imgur.com/LmVMnIs.png)
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Copper Equipment is a simple mod that will add copper armor and tools.
 
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+![](https://i.imgur.com/W2mbRoh.png)
