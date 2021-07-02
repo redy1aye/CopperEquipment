@@ -1,8 +1,10 @@
 package dev.redy1aye.copperequipment;
 
+import dev.redy1aye.copperequipment.armor.Armor;
+import dev.redy1aye.copperequipment.armor.BaseArmor;
+import dev.redy1aye.copperequipment.tools.*;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -15,10 +17,11 @@ public class Mod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        Registry.register(Registry.ITEM, new Identifier(Mod.MOD_ID, "copper_shovel"), new Shovel(new Tools()));
         Registry.register(Registry.ITEM, new Identifier(Mod.MOD_ID, "copper_pickaxe"), new Pickaxe(new Tools()));
         Registry.register(Registry.ITEM, new Identifier(Mod.MOD_ID, "copper_axe"), new Axe(new Tools()));
         Registry.register(Registry.ITEM, new Identifier(Mod.MOD_ID, "copper_hoe"), new Hoe(new Tools()));
-        Registry.register(Registry.ITEM, new Identifier(Mod.MOD_ID, "copper_shovel"), new Shovel(new Tools()));
+
         Registry.register(Registry.ITEM, new Identifier(Mod.MOD_ID, "copper_sword"), new Sword(new Tools()));
 
         Registry.register(Registry.ITEM, new Identifier(Mod.MOD_ID, "copper_helmet"), new BaseArmor(COPPER_ARMOR, EquipmentSlot.HEAD));
