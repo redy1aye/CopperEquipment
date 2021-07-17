@@ -1,0 +1,20 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "c",
+        "c",
+        "/"
+    ],
+    "key": {
+        "c": {
+            "item": "copper_ingot"
+        },
+        "/": {
+            "item": "stick"
+        }
+    },
+  "result": {
+    "item": "copperequipment:copper_sword",
+    "count": 1
+  }
+}

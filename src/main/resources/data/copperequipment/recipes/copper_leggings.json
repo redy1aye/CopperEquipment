@@ -1,0 +1,17 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "ccc",
+        "c c",
+        "c c"
+    ],
+    "key": {
+        "c": {
+            "item": "copper_ingot"
+        }
+    },
+  "result": {
+    "item": "copperequipment:copper_leggings",
+    "count": 1
+  }
+}
