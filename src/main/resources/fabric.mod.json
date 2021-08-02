@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "copperequipment",
+  "version": "1.5",
+
+  "name": "Copper Equipment",
+  "description": "Enjoy your copper armor and tools!",
+  "authors": [
+    "Redy1aye"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/copper-equipment-fabric",
+    "sources": "https://github.com/Redy1aye/CopperEquipment",
+    "issues": "https://github.com/Redy1aye/CopperEquipment/issues"
+  },
+
+  "license": "MIT",
+  "icon": "assets/copperequipment/copperequipmentlogo.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.redy1aye.copperequipment.Mod"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "fabric": "*",
+    "minecraft": "1.17.1",
+    "java": ">=16",
+    "cloth-config2": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

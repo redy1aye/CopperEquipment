@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "copperequipment:copper_shovel"
+  },
+  "addition": {
+    "item": "minecraft:honeycomb"
+  },
+  "result": {
+    "item": "copperequipment:waxed_copper_shovel"
+  }
+}
