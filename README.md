@@ -8,6 +8,4 @@
 
 ![Equipmnet Preview](https://i.imgur.com/DSNSkX6.png)
 
-##### CurseForge - https://www.curseforge.com/minecraft/mc-mods/copper-equipment-fabric
-##### Modrinth - https://modrinth.com/mod/copper-equipment
-##### Planet Minecraft - https://www.planetminecraft.com/mod/copper-equipment/
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/copper-equipment-forge) [Modrinth](https://modrinth.com/mod/copper-equipment) [Planet Minecraft](https://www.planetminecraft.com/mod/copper-equipment/)
