@@ -1,11 +1,6 @@
 # Copper Equipment Mod (Fabric)
+![Copper Equipmnet Logo](https://i.imgur.com/u8Z7R1P.png)
+### Mod will add new crafts, thanks to which you can quickly create what you need!
+#### Mod required [Fabrci API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 
-![Copper Equipmnet Logo](https://i.imgur.com/QNnsHKQ.png)
-
-### Copper is cool but very useless. You can't even make armor or tools out of it. Well, I fixed that! Copper Equipment is the simplest mod that adds copper armor and tools.
-
-#### Mod required [Fabrci API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config)!
-
-![Equipmnet Preview](https://i.imgur.com/DSNSkX6.png)
-
-[CurseForge](https://www.curseforge.com/minecraft/mc-mods/copper-equipment-forge) [Modrinth](https://modrinth.com/mod/copper-equipment) [Planet Minecraft](https://www.planetminecraft.com/mod/copper-equipment/)
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/crafted) [Modrinth](https://modrinth.com/mod/crafted) [Planet Minecraft](https://www.planetminecraft.com/mod/crafted/)
