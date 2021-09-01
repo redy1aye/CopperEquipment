@@ -1,0 +1,24 @@
+{
+  "item.copperequipment.copper_sword": "Медный меч",
+  "item.copperequipment.copper_pickaxe": "Медная кирка",
+  "item.copperequipment.copper_axe": "Медный топор",
+  "item.copperequipment.copper_shovel": "Медная лопата",
+  "item.copperequipment.copper_hoe": "Медная мотыга",
+  "item.copperequipment.copper_shears": "Медные ножницы",
+
+  "item.copperequipment.copper_helmet": "Медный шлем",
+  "item.copperequipment.copper_chestplate": "Медный нагрудник",
+  "item.copperequipment.copper_leggings": "Медные поножи",
+  "item.copperequipment.copper_boots": "Медные ботинки",
+
+    "item.copperequipment.waxed_copper_sword": "Вощёный медный меч",
+    "item.copperequipment.waxed_copper_pickaxe": "Вощёная медная кирка",
+    "item.copperequipment.waxed_copper_axe": "Вощёный медный топор",
+    "item.copperequipment.waxed_copper_shovel": "Вощёная медная лопата",
+    "item.copperequipment.waxed_copper_hoe": "Вощёная медная мотыга",
+
+    "item.copperequipment.waxed_copper_helmet": "Вощёный медный шлем",
+    "item.copperequipment.waxed_copper_chestplate": "Вощёный медный нагрудник",
+    "item.copperequipment.waxed_copper_leggings": "Вощёные медный штаны",
+    "item.copperequipment.waxed_copper_boots": "Вощёные медные ботинки"
+}
