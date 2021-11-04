@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.redy1aye.copperequipment.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "SheepEntityMixin",
+    "ItemPredicateMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
