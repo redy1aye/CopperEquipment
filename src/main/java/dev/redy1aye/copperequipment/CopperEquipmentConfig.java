@@ -31,6 +31,8 @@ public class CopperEquipmentConfig extends PartitioningSerializer.GlobalData {
         public float CopperAxeAttackSpeed = -3.1f; // Default = -3.1.
             @Comment("// //")
         public int CopperToolsMiningLevel = 2; // Default = 2.
+            @Comment("// //")
+        public boolean EnableButtons = true;
 
         @Config(name = "Waxed Copper Equipment")
         public static class WGeneral implements ConfigData {
