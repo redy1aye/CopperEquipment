@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "copperequipment",
-  "version": "1.6",
+  "version": "1.7",
 
   "name": "Copper Equipment",
   "description": "Enjoy your copper armor and tools!",
@@ -32,6 +32,5 @@
     "cloth-config2": "*"
   },
   "suggests": {
-    "another-mod": "*"
   }
 }
