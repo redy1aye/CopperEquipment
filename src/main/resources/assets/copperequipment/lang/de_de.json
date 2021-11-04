@@ -4,22 +4,31 @@
   "item.copperequipment.copper_axe": "Kupferaxt",
   "item.copperequipment.copper_shovel": "Kupferschaufel",
   "item.copperequipment.copper_hoe": "Kupferhacke",
-  
+  "item.copperequipment.copper_shears": "Kupferschere",
+
   "item.copperequipment.copper_helmet": "Kupferhelm",
   "item.copperequipment.copper_chestplate": "Kupferharnisch",
   "item.copperequipment.copper_leggings": "Kupferbeinschutz",
   "item.copperequipment.copper_boots": "Kupferstiefel",
+  "item.copperequipment.copper_horse_armor": "Kupferne Rossharnisch",
 
-  "item.copperequipment.copper_shears": "Kupferschere",
+    "item.copperequipment.waxed_copper_sword": "Gewachster Kupferschwert",
+    "item.copperequipment.waxed_copper_pickaxe": "Gewachster Kupferspitzhacke",
+    "item.copperequipment.waxed_copper_axe": "Gewachster Kupferaxt",
+    "item.copperequipment.waxed_copper_shovel": "Gewachster Kupferschaufel",
+    "item.copperequipment.waxed_copper_hoe": "Gewachster Kupferhacke",
+    "item.copperequipment.waxed_copper_shears": "Gewachster Kupferschere",
 
-  "item.copperequipment.waxed_copper_sword": "Gewachster Kupferschwert",
-  "item.copperequipment.waxed_copper_pickaxe": "Gewachster Kupferspitzhacke",
-  "item.copperequipment.waxed_copper_axe": "Gewachster Kupferaxt",
-  "item.copperequipment.waxed_copper_shovel": "Gewachster Kupferschaufel",
-  "item.copperequipment.waxed_copper_hoe": "Gewachster Kupferhacke",
+    "item.copperequipment.waxed_copper_helmet": "Gewachster Kupferhelm",
+    "item.copperequipment.waxed_copper_chestplate": "Gewachster Kupferharnisch",
+    "item.copperequipment.waxed_copper_leggings": "Gewachster Kupferbeinschutz",
+    "item.copperequipment.waxed_copper_boots": "Gewachster Kupferstiefel",
+    "item.copperequipment.waxed_copper_horse_armor": "Gewachster Kupferne Rossharnisch",
 
-  "item.copperequipment.waxed_copper_helmet": "Gewachster Kupferhelm",
-  "item.copperequipment.waxed_copper_chestplate": "Gewachster Kupferharnisch",
-  "item.copperequipment.waxed_copper_leggings": "Gewachster Kupferbeinschutz",
-  "item.copperequipment.waxed_copper_boots": "Gewachster Kupferstiefel"
+
+  "block.copperequipment.copper_button": "Kupferknopf",
+  "block.copperequipment.copper_pressure_plate": "Kupferdruckplatte",
+
+    "block.copperequipment.waxed_copper_button": "Gewachster Kupferknopf",
+    "block.copperequipment.waxed_copper_pressure_plate": "Gewachster Kupferdruckplatte"
 }

@@ -10,15 +10,25 @@
   "item.copperequipment.copper_chestplate": "Медный нагрудник",
   "item.copperequipment.copper_leggings": "Медные поножи",
   "item.copperequipment.copper_boots": "Медные ботинки",
+  "item.copperequipment.copper_horse_armor": "Медная конская броня",
 
     "item.copperequipment.waxed_copper_sword": "Вощёный медный меч",
     "item.copperequipment.waxed_copper_pickaxe": "Вощёная медная кирка",
     "item.copperequipment.waxed_copper_axe": "Вощёный медный топор",
     "item.copperequipment.waxed_copper_shovel": "Вощёная медная лопата",
     "item.copperequipment.waxed_copper_hoe": "Вощёная медная мотыга",
+    "item.copperequipment.waxed_copper_shears": "Вощённые медные ножницы",
 
     "item.copperequipment.waxed_copper_helmet": "Вощёный медный шлем",
     "item.copperequipment.waxed_copper_chestplate": "Вощёный медный нагрудник",
     "item.copperequipment.waxed_copper_leggings": "Вощёные медный штаны",
-    "item.copperequipment.waxed_copper_boots": "Вощёные медные ботинки"
+    "item.copperequipment.waxed_copper_boots": "Вощёные медные ботинки",
+    "item.copperequipment.waxed_copper_horse_armor": "Вощённая медная конская броня",
+
+
+  "block.copperequipment.copper_button": "Медная кнопка",
+  "block.copperequipment.copper_pressure_plate": "Медная нажимная плита",
+
+    "block.copperequipment.waxed_copper_button": "Вощённая медная кнопка",
+    "block.copperequipment.waxed_copper_pressure_plate": "Вощённая медная нажимная плита"
 }

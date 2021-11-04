@@ -1,12 +1,34 @@
 {
-  "item.copperequipment.copper_sword": "Мідний меч",
+  "item.copperequipment.copper_sword": "Вощений мідний меч",
   "item.copperequipment.copper_pickaxe": "Мідне кайло",
   "item.copperequipment.copper_axe": "Мідну сокира",
   "item.copperequipment.copper_shovel": "Мідна лопата",
   "item.copperequipment.copper_hoe": "Мідна мотика",
+  "item.copperequipment.copper_shears": "Мідні ножиці",
   
   "item.copperequipment.copper_helmet": "Мідний шолом",
   "item.copperequipment.copper_chestplate": "Мідний нагрудник",
-  "item.copperequipment.copper_leggings": "Miдні наголінники",
-  "item.copperequipment.copper_boots": "Мідні чоботи"
+  "item.copperequipment.copper_leggings": "Мідні наголінники",
+  "item.copperequipment.copper_boots": "Мідні чоботи",
+  "item.copperequipment.copper_horse_armor": "Мідна кінська броня",
+
+    "item.copperequipment.waxed_copper_sword": "Вощений мідний меч",
+    "item.copperequipment.waxed_copper_pickaxe": "Вощена мідне кайло",
+    "item.copperequipment.waxed_copper_axe": "Вощена мідну сокира",
+    "item.copperequipment.waxed_copper_shovel": "Вощена мідна лопата",
+    "item.copperequipment.waxed_copper_hoe": "Вощена мідна мотика",
+    "item.copperequipment.waxed_copper_shears": "Вощені мідні ножиці",
+
+    "item.copperequipment.waxed_copper_helmet": "Вощений мідний шолом",
+    "item.copperequipment.waxed_copper_chestplate": "Вощений мідний нагрудник",
+    "item.copperequipment.waxed_copper_leggings": "Вощені мідні наголінники",
+    "item.copperequipment.waxed_copper_boots": "Вощені мідні чоботи",
+    "item.copperequipment.waxed_copper_horse_armor": "Вощена мідна кінська броня",
+
+
+  "block.copperequipment.copper_button": "Мідна кнопка",
+  "block.copperequipment.copper_pressure_plate": "Мідна натискна плита",
+
+    "block.copperequipment.waxed_copper_button": "Вощена мідна кнопка",
+    "block.copperequipment.waxed_copper_pressure_plate": "Вощена мідна натискна плита"
 }

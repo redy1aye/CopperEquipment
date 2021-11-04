@@ -1,0 +1,34 @@
+{
+  "item.copperequipment.copper_sword": "Espada de cobre",
+  "item.copperequipment.copper_pickaxe": "Picareta de cobre",
+  "item.copperequipment.copper_axe": "Machado de cobre",
+  "item.copperequipment.copper_shovel": "Pá de cobre",
+  "item.copperequipment.copper_hoe": "Enxada de cobre",
+  "item.copperequipment.copper_shears": "Tesouras de cobre",
+
+  "item.copperequipment.copper_helmet": "Capacete de cobre",
+  "item.copperequipment.copper_chestplate": "Peitoral de cobre",
+  "item.copperequipment.copper_leggings": "Perneiras de cobre",
+  "item.copperequipment.copper_boots": "Botas de cobre",
+  "item.copperequipment.copper_horse_armor": "Armadura de cobre para cavalo",
+
+    "item.copperequipment.waxed_copper_sword": "Espada de cobre encerado",
+    "item.copperequipment.waxed_copper_pickaxe": "Picareta de cobre encerado",
+    "item.copperequipment.waxed_copper_axe": "Machado de cobre encerado",
+    "item.copperequipment.waxed_copper_shovel": "Pá de cobre encerado",
+    "item.copperequipment.waxed_copper_hoe": "Enxada de cobre encerado",
+    "item.copperequipment.waxed_copper_shears": "Tesoura de cobre encerado",
+
+    "item.copperequipment.waxed_copper_helmet": "Capacete de cobre encerado",
+    "item.copperequipment.waxed_copper_chestplate": "Peitoral de cobre encerado",
+    "item.copperequipment.waxed_copper_leggings": "Perneiras de cobre encerado",
+    "item.copperequipment.waxed_copper_boots": "Botas de cobre encerado",
+    "item.copperequipment.waxed_copper_horse_armor": "Armadura para cavalos de cobre encerado",
+
+
+  "block.copperequipment.copper_button": "Botão de cobre",
+  "block.copperequipment.copper_pressure_plate": "Placa de pressão de cobre",
+
+    "block.copperequipment.waxed_copper_button": "Botão de cobre encerado",
+    "block.copperequipment.waxed_copper_pressure_plate": "Placa de pressão de cobre encerado"
+}
