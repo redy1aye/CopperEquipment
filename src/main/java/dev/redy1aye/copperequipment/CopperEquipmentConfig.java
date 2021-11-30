@@ -16,10 +16,10 @@ public class CopperEquipmentConfig extends PartitioningSerializer.GlobalData {
 
             @Comment("Copper Equipment Mod Config!"
                 + "\n")
-        public int CopperArmorDurability = 100; @Comment("+ 12 \uD83D\uDC52; 98 \uD83D\uDC55; 79 \uD83D\uDC56; 34 \uD83E\uDD7E.") // + 12 👒; 98 👕; 79 👖; 34 🥾. Default = 100.
-        public int CopperToolsDurability = 176;
+        public int CopperArmorDurability = 70; @Comment("+ 12 \uD83D\uDC52; 98 \uD83D\uDC55; 79 \uD83D\uDC56; 34 \uD83E\uDD7E.") // + 12 👒; 98 👕; 79 👖; 34 🥾. Default = 70.
+        public int CopperToolsDurability = 120; // Default = 120.
             @Comment("// //")
-        public int CopperHelmetProtection = 3; // Default = 3.
+        public int CopperHelmetProtection = 2; // Default = 2.
         public int CopperChestplateProtection = 6; // Default = 6.
         public int CopperLeggingsProtection = 5; // Default = 5.
         public int CopperBootsProtection = 2; // Default = 2.
@@ -33,16 +33,17 @@ public class CopperEquipmentConfig extends PartitioningSerializer.GlobalData {
         public int CopperToolsMiningLevel = 2; // Default = 2.
             @Comment("// //")
         public boolean EnableButtons = true;
+        // public boolean EnableBuckets = true;
 
         @Config(name = "Waxed Copper Equipment")
-        public static class WGeneral implements ConfigData {
+            public static class WGeneral implements ConfigData {
 
                 @Comment("Copper Equipment Mod! Waxed Config!"
                     + "\n")
-            public int WaxedCopperArmorDurability = 200; @Comment("+ 12 \uD83D\uDC52; 98 \uD83D\uDC55; 79 \uD83D\uDC56; 34 \uD83E\uDD7E.") // + 12 👒; 98 👕; 79 👖; 34 🥾. Default = 200.
-            public int WaxedCopperToolsDurability = 276; // Default = 276.
+            public int WaxedCopperArmorDurability = 300; @Comment("+ 12 \uD83D\uDC52; 98 \uD83D\uDC55; 79 \uD83D\uDC56; 34 \uD83E\uDD7E.") // + 12 👒; 98 👕; 79 👖; 34 🥾. Default = 200.
+            public int WaxedCopperToolsDurability = 420; // Default = 276.
                 @Comment("// //")
-            public int WaxedCopperHelmetProtection = 2; // Default = 2.
+            public int WaxedCopperHelmetProtection = 1; // Default = 2.
             public int WaxedCopperChestplateProtection = 5; // Default = 5.
             public int WaxedCopperLeggingsProtection = 4; // Default = 4.
             public int WaxedCopperBootsProtection = 1; // Default = 1.
@@ -54,6 +55,8 @@ public class CopperEquipmentConfig extends PartitioningSerializer.GlobalData {
             public float WaxedCopperAxeAttackSpeed = -3.3f; // Default = -3.3.
                 @Comment("// //")
             public int WaxedCopperToolsMiningLevel = 2; // Default = 2.
+
+            public boolean EnableWaxed = true;
         }
     }
 }

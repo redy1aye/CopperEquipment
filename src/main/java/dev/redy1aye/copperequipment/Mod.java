@@ -1,5 +1,6 @@
 package dev.redy1aye.copperequipment;
 
+import dev.redy1aye.copperequipment.misc.LootSpawn;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
