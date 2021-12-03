@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "copperequipment",
-  "version": "1.7",
+  "version": "1.8.1",
 
   "name": "Copper Equipment",
   "description": "Enjoy your copper armor and tools!",
@@ -15,7 +15,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/copperequipment/copperequipmentlogo.png",
+  "icon": "assets/copperequipment/copperequipment-fabric-logo.png",
 
   "environment": "*",
   "entrypoints": {
@@ -24,11 +24,15 @@
     ]
   },
 
+  "mixins": [
+    "copperequipment.mixins.json"
+  ],
+
   "depends": {
-    "fabricloader": ">=0.11.6",
+    "fabricloader": ">=0.12.5",
     "fabric": "*",
-    "minecraft": "1.17.1",
-    "java": ">=16",
+    "minecraft": "1.18.x",
+    "java": ">=17",
     "cloth-config2": "*"
   }
 }
