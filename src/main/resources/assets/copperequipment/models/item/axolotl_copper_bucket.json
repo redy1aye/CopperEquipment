@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "copperequipment:item/axolotl_copper_bucket"
+  }
+}

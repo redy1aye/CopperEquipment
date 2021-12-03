@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "copperequipment:item/tropical_fish_copper_bucket"
+  }
+}

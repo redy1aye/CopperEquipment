@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "copperequipment:item/powder_snow_copper_bucket"
+  }
+}
