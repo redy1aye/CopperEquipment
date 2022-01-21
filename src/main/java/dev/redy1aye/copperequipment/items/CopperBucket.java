@@ -34,6 +34,9 @@ public class CopperBucket extends Item implements FluidModificationItem {
         this.fluid = fluid;
     }
 
+    public boolean hasGlint(ItemStack stack) {
+        return true;
+    }
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         BlockHitResult blockHitResult = raycast(world, user, this.fluid == Fluids.EMPTY ? RaycastContext.FluidHandling.SOURCE_ONLY : RaycastContext.FluidHandling.NONE);

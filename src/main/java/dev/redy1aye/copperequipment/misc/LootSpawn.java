@@ -21,9 +21,13 @@ public class LootSpawn {
     private static final Identifier BASTION_TREASURE = new Identifier("minecraft", "chests/bastion_treasure");
     private static final Identifier BASTION_OTHER = new Identifier("minecraft", "chests/bastion_other");
 
+    /* private static final Identifier COPPER_ORE
+            = new Identifier("minecraft", "blocks/copper_ore"); */
+
     public static void registerItems() {
 
         LootTableLoadingCallback.EVENT.register(((resourceManager, manager, id, supplier, setter) -> {
+
             if (DESERT_PYRAMID.equals(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -199,6 +203,42 @@ public class LootSpawn {
                                                 .withFunction(EnchantRandomlyLootFunction.create().build())
                                                 .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)).build());
                                         supplier.withPool(poolBuilder.build()); }
+
+            /* if(COPPER_ORE.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.40f))
+                        .with(ItemEntry.builder(Items.XMAS_COOKIE))
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                supplier.withPool(poolBuilder.build());
+            }
+
+            if(COPPER_ORE.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.40f))
+                        .with(ItemEntry.builder(Items.XMAS_CANDY_CANE))
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                supplier.withPool(poolBuilder.build());
+            }
+
+            if(COPPER_ORE.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.01f))
+                        .with(ItemEntry.builder(Items.SKIN_SNOWY))
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                supplier.withPool(poolBuilder.build());
+            }
+
+            if(COPPER_ORE.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.001f))
+                        .with(ItemEntry.builder(Items.SKIN_CANDY_SWORD))
+                        .withFunction(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                supplier.withPool(poolBuilder.build());
+            } */
         }));
     }
 }
