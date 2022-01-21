@@ -1,9 +1,9 @@
 package dev.redy1aye.copperequipment.armor;
 
+import dev.redy1aye.copperequipment.Items;
 import dev.redy1aye.copperequipment.Mod;
 
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
@@ -45,7 +45,7 @@ public class WaxedCopperArmor implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.COPPER_INGOT);
+        return Ingredient.ofItems(Items.COMPRESSED_WAXED_COPPER);
     }
 
     @Override

@@ -1,17 +1,17 @@
-package dev.redy1aye.copperequipment.armor;
+package dev.redy1aye.copperequipment.events.christmas;
 
-import dev.redy1aye.copperequipment.Items;
 import dev.redy1aye.copperequipment.Mod;
 
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Items;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
-public class CopperArmor implements ArmorMaterial {
+public class SnowyCopperArmor implements ArmorMaterial {
 
-    public static final ArmorMaterial COPPER_ARMOR = new CopperArmor();
+    public static final ArmorMaterial SNOWY_COPPER_ARMOR = new SnowyCopperArmor();
 
     static int CopperArmorDurability = Mod.CONFIG.CE_CFG.CopperArmorDurability;
 
@@ -40,17 +40,17 @@ public class CopperArmor implements ArmorMaterial {
 
     @Override
     public SoundEvent getEquipSound() {
-        return SoundEvents.ITEM_ARMOR_EQUIP_IRON;
+        return SoundEvents.BLOCK_POWDER_SNOW_BREAK;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.COMPRESSED_COPPER);
+        return Ingredient.ofItems(Items.COPPER_INGOT);
     }
 
     @Override
     public String getName() {
-        return "copper";
+        return "snowy_copper";
     }
 
     @Override
@@ -62,4 +62,5 @@ public class CopperArmor implements ArmorMaterial {
     public float getKnockbackResistance() {
         return 0;
     }
+
 }
