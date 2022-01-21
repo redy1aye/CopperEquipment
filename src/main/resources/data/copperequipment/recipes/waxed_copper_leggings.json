@@ -5,14 +5,14 @@
   ],
   "key": {
     "#": {
-      "item": "copperequipment:copper_hoe"
+      "item": "copperequipment:copper_leggings"
     },
     "H": {
       "item": "minecraft:honeycomb"
     }
   },
   "result": {
-    "item": "copperequipment:waxed_copper_hoe",
+    "item": "copperequipment:waxed_copper_leggings",
     "count": 1
   }
 }

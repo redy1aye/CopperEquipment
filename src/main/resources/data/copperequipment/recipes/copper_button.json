@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "copperequipment:compressed_copper"
+    }
+  ],
+  "result": {
+    "item": "copperequipment:copper_button",
+    "count": 1
+  }
+}

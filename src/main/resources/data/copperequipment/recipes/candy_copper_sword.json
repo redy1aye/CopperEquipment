@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "copperequipment:copper_sword"
+  },
+  "addition": {
+    "item": "copperequipment:candy_sword_skin"
+  },
+  "result": {
+    "item": "copperequipment:candy_copper_sword"
+  }
+}

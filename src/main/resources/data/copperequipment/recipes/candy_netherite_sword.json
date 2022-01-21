@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "addition": {
+    "item": "copperequipment:candy_sword_skin"
+  },
+  "result": {
+    "item": "copperequipment:candy_netherite_sword"
+  }
+}

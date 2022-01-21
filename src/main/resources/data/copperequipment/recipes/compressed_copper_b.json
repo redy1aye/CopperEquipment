@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:copper_block"
+  },
+  "addition": {
+    "item": "minecraft:copper_block"
+  },
+  "result": {
+    "item": "copperequipment:compressed_copper",
+    "count": 9
+  }
+}

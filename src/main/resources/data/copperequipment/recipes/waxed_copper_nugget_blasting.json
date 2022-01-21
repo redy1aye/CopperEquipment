@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "copperequipment:waxed_copper_stuff"
+  },
+  "result": "copperequipment:waxed_copper_nugget",
+  "experience": 0.1,
+  "cookingtime": 100
+}

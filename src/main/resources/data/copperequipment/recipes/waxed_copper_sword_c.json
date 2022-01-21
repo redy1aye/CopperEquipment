@@ -1,20 +1,20 @@
 {
     "type": "crafting_shaped",
     "pattern": [
-        "cc",
-        " /",
-        " /"
+        "c",
+        "c",
+        "/"
     ],
     "key": {
         "c": {
-            "item": "copperequipment:compressed_copper"
+            "item": "copperequipment:compressed_waxed_copper"
         },
         "/": {
             "item": "stick"
         }
     },
   "result": {
-    "item": "copperequipment:copper_hoe",
+    "item": "copperequipment:waxed_copper_sword",
     "count": 1
   }
 }

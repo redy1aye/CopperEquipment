@@ -1,8 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " c",
-    "c "
+    "cc"
   ],
   "key": {
     "c": {
@@ -10,7 +9,7 @@
     }
   },
   "result": {
-    "item": "copperequipment:copper_shears",
+    "item": "copperequipment:copper_pressure_plate",
     "count": 1
   }
 }

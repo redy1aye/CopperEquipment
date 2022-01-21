@@ -1,12 +1,18 @@
 {
-  "type": "minecraft:smithing",
-  "base": {
-    "item": "copperequipment:copper_axe"
-  },
-  "addition": {
-    "item": "minecraft:honeycomb"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#H"
+  ],
+  "key": {
+    "#": {
+      "item": "copperequipment:copper_axe"
+    },
+    "H": {
+      "item": "minecraft:honeycomb"
+    }
   },
   "result": {
-    "item": "copperequipment:waxed_copper_axe"
+    "item": "copperequipment:waxed_copper_axe",
+    "count": 1
   }
 }

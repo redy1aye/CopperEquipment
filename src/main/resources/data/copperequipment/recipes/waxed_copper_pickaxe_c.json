@@ -1,20 +1,20 @@
 {
   "type": "crafting_shaped",
   "pattern": [
-    "cc",
-    "c/",
-    " /"
+    "ccc",
+    " / ",
+    " / "
   ],
   "key": {
     "c": {
-      "item": "copperequipment:compressed_copper"
+      "item": "copperequipment:compressed_waxed_copper"
     },
     "/": {
       "item": "stick"
     }
   },
   "result": {
-    "item": "copperequipment:copper_axe",
+    "item": "copperequipment:waxed_copper_pickaxe",
     "count": 1
   }
 }

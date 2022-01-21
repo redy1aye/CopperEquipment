@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "copperequipment:copper_chestplate"
+  },
+  "addition": {
+    "item": "copperequipment:snowy_skin"
+  },
+  "result": {
+    "item": "copperequipment:snowy_copper_chestplate"
+  }
+}

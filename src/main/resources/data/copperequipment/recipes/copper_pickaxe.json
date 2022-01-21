@@ -1,9 +1,9 @@
 {
   "type": "crafting_shaped",
   "pattern": [
-    "cc",
-    "c/",
-    " /"
+    "ccc",
+    " / ",
+    " / "
   ],
   "key": {
     "c": {
@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "copperequipment:copper_axe",
+    "item": "copperequipment:copper_pickaxe",
     "count": 1
   }
 }
