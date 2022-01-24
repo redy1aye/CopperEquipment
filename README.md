@@ -5,6 +5,6 @@
 
 #### Mod required [Fabrci API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config)!
 
-![Equipmnet Preview](https://i.imgur.com/db3RTQI.png)
+![Equipmnet Preview](https://i.imgur.com/BXMFO1O.png)
 
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/copper-equipment-fabric) [Modrinth](https://modrinth.com/mod/copper-equipment) [Planet Minecraft](https://www.planetminecraft.com/mod/copper-equipment/)
