@@ -8,3 +8,5 @@
 ![Equipmnet Preview](https://i.imgur.com/BXMFO1O.png)
 
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/copper-equipment-fabric) [Modrinth](https://modrinth.com/mod/copper-equipment) [Planet Minecraft](https://www.planetminecraft.com/mod/copper-equipment/)
+
+FORKED: adds support for newer minecraft versions
