@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "copperequipment:copper_sword",
+    "copperequipment:copper_shovel",
+    "copperequipment:copper_pickaxe",
+    "copperequipment:copper_axe",
+    "copperequipment:copper_hoe",
+
+    "copperequipment:copper_helmet",
+    "copperequipment:copper_chestplate",
+    "copperequipment:copper_leggings",
+    "copperequipment:copper_boots",
+    "copperequipment:copper_horse_armor"
+  ]
+}

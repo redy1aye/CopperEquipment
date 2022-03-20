@@ -1,0 +1,37 @@
+{
+  "parent": "copperequipment:more_tables",
+  "display": {
+    "icon": {
+      "item": "copperequipment:compressed_copper"
+    },
+    "title": {
+      "translate": "advancements.story.copper_connecting.title"
+    },
+    "description": {
+      "translate": "advancements.story.copper_connecting.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "compressed_copper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "copperequipment:compressed_copper"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "compressed_copper"
+    ]
+  ]
+}

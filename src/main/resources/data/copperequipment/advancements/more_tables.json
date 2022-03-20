@@ -1,0 +1,37 @@
+{
+  "parent": "minecraft:story/smelt_iron",
+  "display": {
+    "icon": {
+      "item": "minecraft:smithing_table"
+    },
+    "title": {
+      "translate": "advancements.story.more_tables.title"
+    },
+    "description": {
+      "translate": "advancements.story.more_tables.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "smithing_table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:smithing_table"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "smithing_table"
+    ]
+  ]
+}

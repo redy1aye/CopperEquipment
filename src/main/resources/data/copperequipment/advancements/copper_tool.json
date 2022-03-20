@@ -1,0 +1,89 @@
+{
+  "parent": "copperequipment:copper_connecting",
+  "display": {
+    "icon": {
+      "item": "copperequipment:copper_sword"
+    },
+    "title": {
+      "translate": "advancements.story.copper_tool.title"
+    },
+    "description": {
+      "translate": "advancements.story.copper_tool.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "copper_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "copperequipment:copper_sword"
+            ]
+          }
+        ]
+      }
+    },
+    "copper_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "copperequipment:copper_pickaxe"
+            ]
+          }
+        ]
+      }
+    },
+    "copper_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "copperequipment:copper_axe"
+            ]
+          }
+        ]
+      }
+    },
+    "copper_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "copperequipment:copper_shovel"
+            ]
+          }
+        ]
+      }
+    },
+    "copper_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "copperequipment:copper_hoe"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+	  "copper_sword",
+      "copper_pickaxe",
+      "copper_axe",
+      "copper_shovel",
+      "copper_hoe"
+    ]
+  ]
+}

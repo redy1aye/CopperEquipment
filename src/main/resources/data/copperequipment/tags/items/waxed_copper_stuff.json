@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "copperequipment:waxed_copper_sword",
+    "copperequipment:waxed_copper_shovel",
+    "copperequipment:waxed_copper_pickaxe",
+    "copperequipment:waxed_copper_axe",
+    "copperequipment:waxed_copper_hoe",
+
+    "copperequipment:waxed_copper_helmet",
+    "copperequipment:waxed_copper_chestplate",
+    "copperequipment:waxed_copper_leggings",
+    "copperequipment:waxed_copper_boots"
+  ]
+}

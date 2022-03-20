@@ -1,0 +1,11 @@
+{
+  "type": "copperequipment:drying",
+  "ingredients": [
+    {
+      "item": "copperequipment:compressed_copper"
+    }
+  ],
+  "result": {
+    "item": "copperequipment:compressed_waxed_copper"
+  }
+}
