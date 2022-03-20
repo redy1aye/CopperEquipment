@@ -1,6 +1,9 @@
 {
+  "itemGroup.copperequipment.copperequipment_tab": "Copper Equipment",
+
   "item.copperequipment.compressed_copper": "Compressed Copper",
   "item.copperequipment.copper_nugget": "Copper Nugget",
+
     "item.copperequipment.compressed_waxed_copper": "Waxed Compressed Copper",
     "item.copperequipment.waxed_copper_nugget": "Waxed Copper Nugget",
 
@@ -9,7 +12,7 @@
   "item.copperequipment.copper_axe": "Copper Axe",
   "item.copperequipment.copper_shovel": "Copper Shovel",
   "item.copperequipment.copper_hoe": "Copper Hoe",
-  "item.copperequipment.copper_shears": "Copper Shears",
+  "item.copperequipment.copper_shears": "Copper Shears [WIP]",
 
   "item.copperequipment.copper_helmet": "Copper Helmet",
   "item.copperequipment.copper_chestplate": "Copper Chestplate",
@@ -30,20 +33,39 @@
     "item.copperequipment.waxed_copper_boots": "Waxed Copper Boots",
     "item.copperequipment.waxed_copper_horse_armor": "Waxed Copper Horse Armor",
 
-  "item.copperequipment.copper_bucket": "Copper Bucket [WIP]",
-  "item.copperequipment.water_copper_bucket": "Copper Bucket [WIP]",
-  "item.copperequipment.powder_snow_copper_bucket": "Copper Bucket [WIP]",
-  "item.copperequipment.milk_copper_bucket": "Copper Bucket [WIP]",
-  "item.copperequipment.pufferfish_copper_bucket": "Copper Bucket [WIP]",
-  "item.copperequipment.salmon_copper_bucket": "Copper Bucket [WIP]",
-  "item.copperequipment.cod_copper_bucket": "Copper Bucket [WIP]",
-  "item.copperequipment.tropical_fish_copper_bucket": "Copper Bucket [WIP]",
-  "item.copperequipment.axolotl_copper_bucket": "Copper Bucket [WIP]",
-
+  "block.copperequipment.dryer": "Dryer",
 
   "block.copperequipment.copper_button": "Copper Button",
   "block.copperequipment.copper_pressure_plate": "Copper Pressure Plate",
-
     "block.copperequipment.waxed_copper_button": "Waxed Copper Button",
-    "block.copperequipment.waxed_copper_pressure_plate": "Waxed Copper Pressure Plate"
+    "block.copperequipment.waxed_copper_pressure_plate": "Waxed Copper Pressure Plate",
+
+
+  "advancements.story.more_tables.title": "More tables!",
+  "advancements.story.more_tables.description": "Make a smithing table by connecting 4 planks and 2 iron ingots",
+
+  "advancements.story.copper_connecting.title": "Copper Age",
+  "advancements.story.copper_connecting.description": "Combine 2 copper ingots in the smithing table",
+
+  "advancements.story.copper_tool.title": "Everything you need!",
+  "advancements.story.copper_tool.description": "Use compressed copper to craft tools",
+
+
+  "item.copperequipment.xmas_candy_cane": "Christmas Candy Cane",
+  "item.copperequipment.xmas_cookie": "Christmas Gingerbread",
+
+  "item.copperequipment.snowy_skin": "§dChristmas Skin §f\"Snowy\"",
+  "skinsuitable.copperequipment.snowy_skin": "§7Suitable for §fCopper Helmet§7, §fCopper Chestplate §7and §fCopper Boots§7.",
+  "item.copperequipment.snowy_copper_helmet": "Snowy Copper Helmet",
+  "item.copperequipment.snowy_copper_chestplate": "Snowy Copper Chestplate",
+  "item.copperequipment.snowy_copper_boots": "Snowy Copper Boots",
+
+  "item.copperequipment.candy_sword_skin": "§dChristmas Skin §c\"Candy\"",
+  "skinsuitable.copperequipment.candy_sword_skin": "§7Suitable for §fCopper§7, §fDiamond §7and §fNetherite §7Swords.",
+  "item.copperequipment.candy_netherite_sword": "Candy Netherite Sword",
+  "item.copperequipment.candy_diamond_sword": "Candy Diamond Sword",
+  "item.copperequipment.candy_copper_sword": "Candy Copper Sword",
+
+  "skininfo.copperequipment.paint": "§7Can be used on a smithing table.",
+  "xmas.copperequipment.congrats": "§fCopper Equipment Mod §7wishes you a §cMerry Christmas!"
 }

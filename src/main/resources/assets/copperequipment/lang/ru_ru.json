@@ -1,4 +1,12 @@
 {
+  "itemGroup.copperequipment.copperequipment_tab": "Медное оборудование",
+
+  "item.copperequipment.compressed_copper": "Сжатая медь",
+  "item.copperequipment.copper_nugget": "Кусочек меди",
+
+    "item.copperequipment.compressed_waxed_copper": "Вощённая сжатая медь",
+    "item.copperequipment.waxed_copper_nugget": "Вощённый кусочек меди",
+
   "item.copperequipment.copper_sword": "Медный меч",
   "item.copperequipment.copper_pickaxe": "Медная кирка",
   "item.copperequipment.copper_axe": "Медный топор",
@@ -25,10 +33,39 @@
     "item.copperequipment.waxed_copper_boots": "Вощёные медные ботинки",
     "item.copperequipment.waxed_copper_horse_armor": "Вощённая медная конская броня",
 
+  "block.copperequipment.dryer": "Сушилка",
 
   "block.copperequipment.copper_button": "Медная кнопка",
   "block.copperequipment.copper_pressure_plate": "Медная нажимная плита",
-
     "block.copperequipment.waxed_copper_button": "Вощённая медная кнопка",
-    "block.copperequipment.waxed_copper_pressure_plate": "Вощённая медная нажимная плита"
+    "block.copperequipment.waxed_copper_pressure_plate": "Вощённая медная нажимная плита",
+
+
+  "advancements.story.more_tables.title": "Больше верстаков!",
+  "advancements.story.more_tables.description": "Сделайте стол кузнеца соединив 4 доски и 2 слитка железа",
+
+  "advancements.story.copper_connecting.title": "Медный век",
+  "advancements.story.copper_connecting.description": "Спресуйте 2 слитка меди на столе кузнеца",
+
+  "advancements.story.copper_tool.title": "Всё, что нужно!",
+  "advancements.story.copper_tool.description": "Используйте сжатую медь для крафта инструментов",
+
+
+  "item.copperequipment.xmas_candy_cane": "Рождественский леденец",
+  "item.copperequipment.xmas_cookie": "Рождественский пряник",
+
+  "item.copperequipment.snowy_skin": "§dНовогодний скин §f\"Заснеженный\"",
+  "skinsuitable.copperequipment.snowy_skin": "§7Подходит для §fмедного шлема§7, §fмедного нагрудника §7и §fмедных ботинок§7.",
+  "item.copperequipment.snowy_copper_helmet": "Заснеженный медный шлем",
+  "item.copperequipment.snowy_copper_chestplate": "Заснеженный медный нагрудник",
+  "item.copperequipment.snowy_copper_boots": "Заснеженные медные ботинки",
+
+  "item.copperequipment.candy_sword_skin": "§dНовогодний скин §c\"Конфета\"",
+  "skinsuitable.copperequipment.candy_sword_skin": "§7Подходит для §fмедного§7, §fалмазного §7и §fнезеритового §7мечей.",
+  "item.copperequipment.candy_netherite_sword": "Незеритовый меч-конфета",
+  "item.copperequipment.candy_diamond_sword": "Алмазный меч-конфета",
+  "item.copperequipment.candy_copper_sword": "Медный меч-конфета",
+
+  "skininfo.copperequipment.paint": "§7Используется на столе кузнеца.",
+  "xmas.copperequipment.congrats": "§7Мод §fCopper Equipment §7желает вам счастливого §cНового Года!"
 }

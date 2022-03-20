@@ -1,0 +1,34 @@
+{
+  "item.copperequipment.copper_sword": "Bakır Kılıç",
+  "item.copperequipment.copper_pickaxe": "Bakır Kazma",
+  "item.copperequipment.copper_axe": "Bakır Balta",
+  "item.copperequipment.copper_shovel": "Bakır Kürek",
+  "item.copperequipment.copper_hoe": "Bakır Çapa",
+  "item.copperequipment.copper_shears": "Bakır Makas",
+
+  "item.copperequipment.copper_helmet": "Bakır Kask",
+  "item.copperequipment.copper_chestplate": "Bakır Göğüslük",
+  "item.copperequipment.copper_leggings": "Bakır Pantolon",
+  "item.copperequipment.copper_boots": "Bakır Bot",
+  "item.copperequipment.copper_horse_armor": "Bakır At Zırhı",
+
+    "item.copperequipment.waxed_copper_sword": "Cilalı Bakır Kılıç",
+    "item.copperequipment.waxed_copper_pickaxe": "Cilalı Bakır Kazma",
+    "item.copperequipment.waxed_copper_axe": "Cilalı Bakır Balta",
+    "item.copperequipment.waxed_copper_shovel": "Cilalı Bakır Kürek",
+    "item.copperequipment.waxed_copper_hoe": "Cilalı Bakır Çapa",
+    "item.copperequipment.waxed_copper_shears": "Cilalı Bakır Makas",
+
+    "item.copperequipment.waxed_copper_helmet": "Cilalı Bakır Kask",
+    "item.copperequipment.waxed_copper_chestplate": "Cilalı Bakır Göğüslük",
+    "item.copperequipment.waxed_copper_leggings": "Cilalı Bakır Pantolon",
+    "item.copperequipment.waxed_copper_boots": "Cilalı Bakır Bot",
+    "item.copperequipment.waxed_copper_horse_armor": "Cilalı Bakır At Zırhı",
+
+
+  "block.copperequipment.copper_button": "Bakır Buton",
+  "block.copperequipment.copper_pressure_plate": "Bakır Basınç Plakası",
+
+    "block.copperequipment.waxed_copper_button": "Cilalı Bakır Buton",
+    "block.copperequipment.waxed_copper_pressure_plate": "Cilalı Bakır Basınç Plakası"
+}
