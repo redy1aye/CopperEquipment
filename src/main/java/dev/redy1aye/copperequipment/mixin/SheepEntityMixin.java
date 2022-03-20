@@ -1,5 +1,5 @@
 package dev.redy1aye.copperequipment.mixin;
-
+/*
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -36,7 +36,7 @@ public abstract class SheepEntityMixin extends LivingEntity
     {
         ItemStack itemStack = player.getStackInHand(hand);
 
-        if (FabricToolTags.SHEARS.contains(itemStack.getItem()))
+        if (FabricToolsKey.SHEARS.contains(itemStack.getItem()))
         {
             if (!this.world.isClient && isShearable())
             {
@@ -52,4 +52,6 @@ public abstract class SheepEntityMixin extends LivingEntity
             }
         }
     }
-}
+} */
+
+    // "SheepEntityMixin","ItemPredicateMixin"

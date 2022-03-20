@@ -1,6 +1,6 @@
 package dev.redy1aye.copperequipment.mixin;
 
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+/*import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -35,4 +35,4 @@ public class ItemPredicateMixin
         }
         return stack;
     }
-}
+} */

@@ -1,5 +1,6 @@
 package dev.redy1aye.copperequipment;
 
+import dev.redy1aye.copperequipment.blocks.dryer.DryerScreen;
 import dev.redy1aye.copperequipment.misc.LootSpawn;
 
 import net.fabricmc.api.ModInitializer;
@@ -7,6 +8,7 @@ import net.fabricmc.api.ModInitializer;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 
 public class Mod implements ModInitializer {
 
@@ -22,5 +24,6 @@ public class Mod implements ModInitializer {
     public void onInitialize() {
        Items.registerItems();
        LootSpawn.registerItems();
+       ScreenRegistry.register(Items.DRYER_SCREEN_HANDLER, DryerScreen::new);
     }
 }
