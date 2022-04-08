@@ -25,7 +25,6 @@
   },
 
   "mixins": [
-    "copperequipment.mixins.json"
   ],
 
   "depends": {
