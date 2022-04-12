@@ -24,6 +24,6 @@ public class Mod implements ModInitializer {
     public void onInitialize() {
        Items.registerItems();
        LootSpawn.registerItems();
-       ScreenRegistry.register(Items.DRYER_SCREEN_HANDLER, DryerScreen::new);
+       // ScreenRegistry.register(Items.DRYER_SCREEN_HANDLER, DryerScreen::new);
     }
 }
