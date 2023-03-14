@@ -1,0 +1,51 @@
+{
+  "itemGroup.copperequipment_tab": "Equipamentos de Cobre",
+
+  "item.copperequipment.compressed_copper": "Cobre comprimido",
+  "item.copperequipment.copper_nugget": "Pepita de cobre",
+    "item.copperequipment.compressed_waxed_copper": "Cobre comprimido encerado",
+    "item.copperequipment.waxed_copper_nugget": "Pepita de cobre encerado",
+
+  "item.copperequipment.copper_sword": "Espada de cobre",
+  "item.copperequipment.copper_pickaxe": "Picareta de cobre",
+  "item.copperequipment.copper_axe": "Machado de cobre",
+  "item.copperequipment.copper_shovel": "Pá de cobre",
+  "item.copperequipment.copper_hoe": "Enxada de cobre",
+  "item.copperequipment.copper_shears": "Tesoura de cobre",
+
+  "item.copperequipment.copper_helmet": "Capacete de cobre",
+  "item.copperequipment.copper_chestplate": "Peitoral de cobre",
+  "item.copperequipment.copper_leggings": "Calças de cobre",
+  "item.copperequipment.copper_boots": "Botas de cobre",
+  "item.copperequipment.copper_horse_armor": "Armadura de cobre para cavalo",
+
+    "item.copperequipment.waxed_copper_sword": "Espada de cobre encerado",
+    "item.copperequipment.waxed_copper_pickaxe": "Picareta de cobre encerado",
+    "item.copperequipment.waxed_copper_axe": "Machado de cobre encerado",
+    "item.copperequipment.waxed_copper_shovel": "Pá de cobre encerado",
+    "item.copperequipment.waxed_copper_hoe": "Enxada de cobre encerado",
+    "item.copperequipment.waxed_copper_shears": "Tesoura de cobre encerado",
+
+    "item.copperequipment.waxed_copper_helmet": "Capacete de cobre encerado",
+    "item.copperequipment.waxed_copper_chestplate": "Peitoral de cobre encerado",
+    "item.copperequipment.waxed_copper_leggings": "Calças de cobre encerado",
+    "item.copperequipment.waxed_copper_boots": "Botas de cobre encerado",
+    "item.copperequipment.waxed_copper_horse_armor": "Armadura de cobre encerado para cavalo",
+
+
+  "block.copperequipment.copper_button": "Botão de cobre",
+  "block.copperequipment.copper_pressure_plate": "Placa de pressão de cobre",
+
+    "block.copperequipment.waxed_copper_button": "Botão de cobre encerado",
+    "block.copperequipment.waxed_copper_pressure_plate": "Placa de pressão de cobre encerado",
+
+
+  "advancements.story.more_tables.title": "Mais bancadas!",
+  "advancements.story.more_tables.description": "Faça uma bancada de ferraria juntando 4 tábuas e 2 lingotes de ferro",
+
+  "advancements.story.copper_connecting.title": "A Era do Cobre",
+  "advancements.story.copper_connecting.description": "Combine 2 lingotes de cobre na bancada de ferraria",
+
+  "advancements.story.copper_tool.title": "Tudo o que você precisa!",
+  "advancements.story.copper_tool.description": "Use cobre comprimido para fabricar ferramentas"
+}
