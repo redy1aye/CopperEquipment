@@ -9,7 +9,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
 public class SnowySkin extends Item {
@@ -19,10 +18,10 @@ public class SnowySkin extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText(xmasEventCongrats));
-        tooltip.add(new TranslatableText(" "));
-        tooltip.add(new TranslatableText(skinInfo));
-        tooltip.add(new TranslatableText(skinSuitable + "snowy_skin"));
+        tooltip.add(Text.translatable(xmasEventCongrats));
+        tooltip.add(Text.translatable(" "));
+        tooltip.add(Text.translatable(skinInfo));
+        tooltip.add(Text.translatable(skinSuitable + "snowy_skin"));
 
         super.appendTooltip(stack, world, tooltip, context);
     }
