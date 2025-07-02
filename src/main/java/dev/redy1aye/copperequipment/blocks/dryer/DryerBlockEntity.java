@@ -1,32 +1,32 @@
 package dev.redy1aye.copperequipment.blocks.dryer;
 
 import dev.redy1aye.copperequipment.Items;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.screen.PropertyDelegate;
-import net.minecraft.server.world.ServerWorld;
-import org.jetbrains.annotations.Nullable;
-
-import net.minecraft.world.World;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.Inventories;
-import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class DryerBlockEntity extends net.minecraft.block.entity.BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
+public class DryerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
     private final DefaultedList<ItemStack> inventory =
             DefaultedList.ofSize(2, ItemStack.EMPTY);
@@ -67,7 +67,7 @@ public class DryerBlockEntity extends net.minecraft.block.entity.BlockEntity imp
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
-        return new DrayerScreenHandler(syncId, inv, this, this.propertyDelegate);
+        return new DryerScreenHandler(syncId, inv, this, this.propertyDelegate);
     }
 
     @Override
@@ -97,6 +97,7 @@ public class DryerBlockEntity extends net.minecraft.block.entity.BlockEntity imp
         Inventories.writeNbt(nbt, inventory);
         super.writeNbt(nbt);
     }
+
     public static void tick(World world, BlockPos pos, BlockState state, DryerBlockEntity entity) {
         if(hasRecipe(entity)) {
             entity.progress++;
@@ -139,8 +140,7 @@ public class DryerBlockEntity extends net.minecraft.block.entity.BlockEntity imp
                     entity.getStack(2).getCount() + 1));
 
             if(!world.isClient()) {
-                EntityType.LIGHTNING_BOLT.spawn((ServerWorld) world, null, null, null, entity.pos,
-                        SpawnReason.TRIGGERED, true, true);
+                EntityType.LIGHTNING_BOLT.spawn((ServerWorld) world, entity.pos, SpawnReason.TRIGGERED);
             }
 
             entity.resetProgress();
