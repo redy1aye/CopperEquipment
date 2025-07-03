@@ -2,11 +2,14 @@ package dev.redy1aye.copperequipment.blocks.dryer;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.*;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
@@ -18,36 +21,35 @@ public class DryerRecipes implements Recipe<SimpleInventory> {
     private final ItemStack result;
     private final DefaultedList<Ingredient> recipeItems;
 
-    public DryerRecipes(Identifier id, ItemStack result,
-                                    DefaultedList<Ingredient> recipeItems) {
+    public DryerRecipes(Identifier id, ItemStack result, DefaultedList<Ingredient> recipeItems) {
         this.id = id;
         this.recipeItems = recipeItems;
         this.result = result;
     }
 
+    @Override
     public boolean matches(SimpleInventory inventory, World world) {
-        recipeItems.get(0).test(inventory.getStack(0));
-        return false;
+        return recipeItems.get(0).test(inventory.getStack(0));
     }
 
     @Override
-    public ItemStack getOutput() {
+    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
+        return this.getOutput(registryManager).copy();
+    }
+
+    @Override
+    public boolean fits(int width, int height) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getOutput(DynamicRegistryManager registryManager) {
         return result.copy();
     }
 
     @Override
     public Identifier getId() {
         return id;
-    }
-
-    @Override
-    public ItemStack craft(SimpleInventory inventory) {
-        return this.getOutput().copy();
-    }
-
-    @Override
-    public boolean fits(int width, int height) {
-        return true;
     }
 
     @Override
@@ -58,6 +60,11 @@ public class DryerRecipes implements Recipe<SimpleInventory> {
     @Override
     public RecipeType<?> getType() {
         return Type.INSTANCE;
+    }
+
+    @Override
+    public DefaultedList<Ingredient> getIngredients() {
+        return recipeItems;
     }
 
     public static class Type implements RecipeType<DryerRecipes> {
@@ -72,8 +79,7 @@ public class DryerRecipes implements Recipe<SimpleInventory> {
 
         @Override
         public DryerRecipes read(Identifier id, JsonObject json) {
-            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "result"));
-
+            ItemStack output = JsonHelper.getItem(json.getAsJsonObject("result"), "item").getDefaultStack();
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(1, Ingredient.EMPTY);
 
@@ -87,11 +93,9 @@ public class DryerRecipes implements Recipe<SimpleInventory> {
         @Override
         public DryerRecipes read(Identifier id, PacketByteBuf buf) {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
-
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromPacket(buf));
             }
-
             ItemStack output = buf.readItemStack();
             return new DryerRecipes(id, output, inputs);
         }
@@ -102,8 +106,7 @@ public class DryerRecipes implements Recipe<SimpleInventory> {
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.write(buf);
             }
-
-            buf.writeItemStack(recipe.getOutput());
+            buf.writeItemStack(recipe.getOutput(null));
         }
     }
 }
