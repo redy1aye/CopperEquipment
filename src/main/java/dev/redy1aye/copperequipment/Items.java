@@ -70,7 +70,6 @@ public class Items {
     public static final ToolItem COPPER_PICKAXE = new PickaxeItem(CopperTools.COPPER_TOOL, 4, -2.7f, new Item.Settings()) {};
     public static final ToolItem COPPER_AXE = new AxeItem(CopperTools.COPPER_TOOL, CopperAxeDamage, CopperAxeAttackSpeed, new Item.Settings()) {};
     public static final ToolItem COPPER_HOE = new HoeItem(CopperTools.COPPER_TOOL, 1, -0.9f, new Item.Settings()) {};
-    // public static final ShearsItem COPPER_SHEARS = new ShearsItem(new Item.Settings().maxDamage(CopperToolsDurability));
 
     public static final ArmorItem COPPER_HELMET = new ArmorItem(CopperArmor.COPPER_ARMOR, EquipmentSlot.HEAD, new Item.Settings());
     public static final ArmorItem COPPER_CHESTPLATE = new ArmorItem(CopperArmor.COPPER_ARMOR, EquipmentSlot.CHEST, new Item.Settings());
@@ -89,17 +88,12 @@ public class Items {
     public static final ArmorItem WAXED_COPPER_LEGGINGS = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, EquipmentSlot.LEGS, new Item.Settings());
     public static final ArmorItem WAXED_COPPER_BOOTS = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, EquipmentSlot.FEET, new Item.Settings());
 
-    public static final Block COPPER_BUTTON = new Buttons
-            (FabricBlockSettings.of(Material.METAL).strength(0.5f, 0.5f).sounds(BlockSoundGroup.COPPER).collidable(false));
-    public static final Block COPPER_PRESSURE_PLATE = new PreasurePlates
-            (PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.of(Material.METAL).strength(0.5f, 0.5f).requiresTool().sounds(BlockSoundGroup.COPPER).collidable(false));
+    public static final Block COPPER_BUTTON = new Buttons(FabricBlockSettings.of(Material.METAL).strength(0.5f, 0.5f).sounds(BlockSoundGroup.COPPER).collidable(false));
+    public static final Block COPPER_PRESSURE_PLATE = new PreasurePlates(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.of(Material.METAL).strength(0.5f, 0.5f).requiresTool().sounds(BlockSoundGroup.COPPER).collidable(false));
 
     public static BlockEntityType<DryerBlockEntity> DRYER_BLOCK_ENTITY;
-    public static final Block DRYER = new Dryer
-            (FabricBlockSettings.of(Material.METAL).strength(0.9f, 0.9f).sounds(BlockSoundGroup.NETHERITE).nonOpaque());
-    public static ScreenHandlerType<DryerScreenHandler> DRYER_SCREEN_HANDLER =
-            ScreenHandlerRegistry.registerSimple(new Identifier(Mod.MOD_ID, "dryer"),
-                    DryerScreenHandler::new);
+    public static final Block DRYER = new Dryer(FabricBlockSettings.of(Material.METAL).strength(0.9f, 0.9f).sounds(BlockSoundGroup.NETHERITE).nonOpaque());
+    public static ScreenHandlerType<DryerScreenHandler> DRYER_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Mod.MOD_ID, "dryer"), DryerScreenHandler::new);
 
     public static final Item XMAS_COOKIE = new XmasCookie(new Item.Settings().rarity(Rarity.EPIC)
             .food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(StatusEffects.LUCK, 1200), 0.95f).build()));
@@ -147,17 +141,6 @@ public class Items {
                 entries.add(COPPER_BUTTON);
                 entries.add(COPPER_PRESSURE_PLATE);
             }
-            entries.add(DRYER);
-            entries.add(XMAS_COOKIE);
-            entries.add(XMAS_CANDY_CANE);
-            entries.add(SKIN_SNOWY);
-            entries.add(SNOWY_COPPER_HELMET);
-            entries.add(SNOWY_COPPER_CHESTPLATE);
-            entries.add(SNOWY_COPPER_BOOTS);
-            entries.add(SKIN_CANDY_SWORD);
-            entries.add(CANDY_NETHERITE_SWORD);
-            entries.add(CANDY_DIAMOND_SWORD);
-            entries.add(CANDY_COPPER_SWORD);
         });
 
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_sword"), COPPER_SWORD);
@@ -190,7 +173,6 @@ public class Items {
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_nugget"), COPPER_NUGGET);
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "waxed_copper_nugget"), WAXED_COPPER_NUGGET);
 
-        // Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_shears"), COPPER_SHEARS);
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_horse_armor"), COPPER_HORSE_ARMOR);
 
         DRYER_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("copperequipment", "dryer"),
