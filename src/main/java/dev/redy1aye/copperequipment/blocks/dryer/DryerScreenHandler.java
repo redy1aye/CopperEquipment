@@ -12,16 +12,16 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.world.World;
 
-public class DrayerScreenHandler extends ScreenHandler {
+public class DryerScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final World world;
     private final PropertyDelegate propertyDelegate;
 
-    public DrayerScreenHandler(int syncId, PlayerInventory playerInventory) {
+    public DryerScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, new SimpleInventory(2), new ArrayPropertyDelegate(1));
     }
 
-    protected DrayerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
+    protected DryerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
         super(Items.DRYER_SCREEN_HANDLER, syncId);
         checkSize(inventory, 2);
         this.inventory = inventory;
@@ -55,7 +55,7 @@ public class DrayerScreenHandler extends ScreenHandler {
     }
 
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int invSlot) {
+    public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(invSlot);
         if (slot != null && slot.hasStack()) {

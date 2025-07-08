@@ -9,17 +9,17 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class DryerScreen extends HandledScreen<DrayerScreenHandler> {
+public class DryerScreen extends HandledScreen<DryerScreenHandler> {
     private static final Identifier DRYER_TEXTURE =
             new Identifier(Mod.MOD_ID, "textures/gui/dryer.png");
 
-    public DryerScreen(DrayerScreenHandler handler, PlayerInventory inventory, Text title) {
+    public DryerScreen(DryerScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, DRYER_TEXTURE);
         int x = (width - backgroundWidth) / 2;
@@ -42,5 +42,4 @@ public class DryerScreen extends HandledScreen<DrayerScreenHandler> {
         super.render(matrices, mouseX, mouseY, delta);
         drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
-
 }

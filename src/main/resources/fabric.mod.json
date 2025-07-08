@@ -24,13 +24,12 @@
     ]
   },
 
-  "mixins": [
-  ],
+  "mixins": [],
 
   "depends": {
-    "fabricloader": ">=0.14.8",
-    "fabric": "*",
-    "minecraft": ">=1.19",
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": ">=1.19.3",
     "java": ">=17",
     "cloth-config2": "*"
   }
