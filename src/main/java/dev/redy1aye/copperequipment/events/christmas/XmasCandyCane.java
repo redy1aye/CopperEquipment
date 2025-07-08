@@ -9,7 +9,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
 public class XmasCandyCane extends Item {
@@ -19,7 +18,7 @@ public class XmasCandyCane extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText(xmasEventCongrats));
+        tooltip.add(Text.translatable(xmasEventCongrats));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }
