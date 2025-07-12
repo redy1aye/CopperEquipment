@@ -18,12 +18,12 @@ public class DryerScreenHandler extends ScreenHandler {
     private final PropertyDelegate propertyDelegate;
 
     public DryerScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(2), new ArrayPropertyDelegate(1));
+        this(syncId, playerInventory, new SimpleInventory(3), new ArrayPropertyDelegate(2));
     }
 
-    protected DryerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
+    public DryerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
         super(Items.DRYER_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 2);
+        checkSize(inventory, 3);
         this.inventory = inventory;
         this.world = playerInventory.player.world;
         inventory.onOpen(playerInventory.player);
@@ -31,6 +31,12 @@ public class DryerScreenHandler extends ScreenHandler {
 
         this.addSlot(new Slot(inventory, 0, 48, 14));
         this.addSlot(new Slot(inventory, 1, 106, 10));
+        this.addSlot(new Slot(inventory, 2, 80, 50) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+        });
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -65,7 +71,7 @@ public class DryerScreenHandler extends ScreenHandler {
                 if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
+            } else if (!this.insertItem(originalStack, 0, this.inventory.size() - 1, false)) {
                 return ItemStack.EMPTY;
             }
 

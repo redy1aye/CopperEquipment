@@ -89,8 +89,8 @@ public class Dryer extends BlockWithEntity implements BlockEntityProvider, Water
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState()
-                .with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing().getOpposite())
+        return this.getDefaultState()
+                .with(Properties.HORIZONTAL_FACING, ctx.getHorizontalPlayerFacing().getOpposite())
                 .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
     }
 

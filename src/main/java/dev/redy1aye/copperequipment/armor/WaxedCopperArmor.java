@@ -2,35 +2,41 @@ package dev.redy1aye.copperequipment.armor;
 
 import dev.redy1aye.copperequipment.Items;
 import dev.redy1aye.copperequipment.Mod;
-
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class WaxedCopperArmor implements ArmorMaterial {
 
-    static int WaxedCopperArmorDurability = Mod.CONFIG.WCE_CFG.WaxedCopperArmorDurability;
+    public static final ArmorMaterial WAXED_COPPER_ARMOR = new WaxedCopperArmor();
 
     static int WaxedCopperHelmetProtection = Mod.CONFIG.WCE_CFG.WaxedCopperHelmetProtection;
-    static int WaxedCopperChestplateDProtection = Mod.CONFIG.WCE_CFG.WaxedCopperChestplateProtection;
+    static int WaxedCopperChestplateProtection = Mod.CONFIG.WCE_CFG.WaxedCopperChestplateProtection;
     static int WaxedCopperLeggingsProtection = Mod.CONFIG.WCE_CFG.WaxedCopperLeggingsProtection;
     static int WaxedCopperBootsProtection = Mod.CONFIG.WCE_CFG.WaxedCopperBootsProtection;
 
-    public static final ArmorMaterial WAXED_COPPER_ARMOR = new WaxedCopperArmor();
-
-    private static final int[] DURABILITY = new int[] {34, 79, 98, 12};
-    private static final int[] PROTECTION = new int[] {WaxedCopperBootsProtection, WaxedCopperLeggingsProtection, WaxedCopperChestplateDProtection, WaxedCopperHelmetProtection};
-
     @Override
-    public int getDurability(EquipmentSlot slot) {
-        return DURABILITY[slot.getEntitySlotId()] + WaxedCopperArmorDurability;
+    public int getDurability(ArmorItem.Type type) {
+        return switch (type) {
+            case HELMET -> 242;
+            case CHESTPLATE -> 352;
+            case LEGGINGS -> 330;
+            case BOOTS -> 286;
+            default -> 0;
+        };
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
-        return PROTECTION[slot.getEntitySlotId()];
+    public int getProtection(ArmorItem.Type type) {
+        return switch (type) {
+            case HELMET -> WaxedCopperHelmetProtection;
+            case CHESTPLATE -> WaxedCopperChestplateProtection;
+            case LEGGINGS -> WaxedCopperLeggingsProtection;
+            case BOOTS -> WaxedCopperBootsProtection;
+            default -> 0;
+        };
     }
 
     @Override
