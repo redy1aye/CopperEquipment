@@ -11,7 +11,7 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.Packet;
+import net.minecraft.network.packet.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -28,9 +28,7 @@ import java.util.Optional;
 
 public class DryerBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
-    private final DefaultedList<ItemStack> inventory =
-            DefaultedList.ofSize(2, ItemStack.EMPTY);
-
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 63;
@@ -47,7 +45,7 @@ public class DryerBlockEntity extends BlockEntity implements NamedScreenHandlerF
             }
 
             public void set(int index, int value) {
-                switch(index) {
+                switch (index) {
                     case 0: DryerBlockEntity.this.progress = value; break;
                     case 1: DryerBlockEntity.this.maxProgress = value; break;
                 }
@@ -90,41 +88,33 @@ public class DryerBlockEntity extends BlockEntity implements NamedScreenHandlerF
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         Inventories.readNbt(nbt, inventory);
+        progress = nbt.getInt("Progress");
+        maxProgress = nbt.getInt("MaxProgress");
     }
 
     @Override
     public void writeNbt(NbtCompound nbt) {
         Inventories.writeNbt(nbt, inventory);
+        nbt.putInt("Progress", progress);
+        nbt.putInt("MaxProgress", maxProgress);
         super.writeNbt(nbt);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, DryerBlockEntity entity) {
-        if(hasRecipe(entity)) {
+        if (world.isClient) return;
+
+        if (hasRecipe(entity, world)) {
             entity.progress++;
-            if(entity.progress > entity.maxProgress) {
-                craftItem(entity);
+            if (entity.progress > entity.maxProgress) {
+                craftItem(entity, world);
             }
         } else {
             entity.resetProgress();
         }
+        entity.markDirty();
     }
 
-    private static boolean hasRecipe(DryerBlockEntity entity) {
-        World world = entity.world;
-        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
-        for (int i = 0; i < entity.inventory.size(); i++) {
-            inventory.setStack(i, entity.getStack(i));
-        }
-
-        assert world != null;
-        Optional<DryerRecipes> match = world.getRecipeManager()
-                .getFirstMatch(DryerRecipes.Type.INSTANCE, inventory, world);
-
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getOutput());
-    }
-
-    private static void craftItem(DryerBlockEntity entity) {
-        World world = entity.world;
+    private static boolean hasRecipe(DryerBlockEntity entity, World world) {
         SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
         for (int i = 0; i < entity.inventory.size(); i++) {
             inventory.setStack(i, entity.getStack(i));
@@ -133,13 +123,25 @@ public class DryerBlockEntity extends BlockEntity implements NamedScreenHandlerF
         Optional<DryerRecipes> match = world.getRecipeManager()
                 .getFirstMatch(DryerRecipes.Type.INSTANCE, inventory, world);
 
-        if(match.isPresent()) {
-            entity.removeStack(0,1);
-            entity.removeStack(1,1);
-            entity.setStack(2, new ItemStack(match.get().getOutput().getItem(),
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
+                canInsertItemIntoOutputSlot(inventory, match.get().getOutput(world.getRegistryManager()));
+    }
+
+    private static void craftItem(DryerBlockEntity entity, World world) {
+        SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
+        for (int i = 0; i < entity.inventory.size(); i++) {
+            inventory.setStack(i, entity.getStack(i));
+        }
+
+        Optional<DryerRecipes> match = world.getRecipeManager()
+                .getFirstMatch(DryerRecipes.Type.INSTANCE, inventory, world);
+
+        if (match.isPresent()) {
+            entity.removeStack(0, 1);
+            entity.setStack(2, new ItemStack(match.get().getOutput(world.getRegistryManager()).getItem(),
                     entity.getStack(2).getCount() + 1));
 
-            if(!world.isClient()) {
+            if (!world.isClient()) {
                 EntityType.LIGHTNING_BOLT.spawn((ServerWorld) world, entity.pos, SpawnReason.TRIGGERED);
             }
 
@@ -152,10 +154,10 @@ public class DryerBlockEntity extends BlockEntity implements NamedScreenHandlerF
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, ItemStack output) {
-        return inventory.getStack(2).getItem() == output.getItem() || inventory.getStack(2).isEmpty();
+        return inventory.getStack(2).isEmpty() || inventory.getStack(2).getItem() == output.getItem();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(2).getMaxCount() > inventory.getStack(2).getCount();
+        return inventory.getStack(2).getCount() < inventory.getStack(2).getMaxCount();
     }
 }
