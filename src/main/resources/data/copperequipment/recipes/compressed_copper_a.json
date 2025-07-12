@@ -1,10 +1,12 @@
 {
-  "type": "minecraft:smithing",
-  "base": {
-    "item": "minecraft:copper_ingot"
-  },
-  "addition": {
-    "item": "minecraft:copper_ingot"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    }
   },
   "result": {
     "item": "copperequipment:compressed_copper",

@@ -25,19 +25,25 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 
-public class Dryer extends BlockWithEntity implements BlockEntityProvider, Waterloggable {
+public class Dryer extends BlockWithEntity implements Waterloggable {
+
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     public Dryer(Settings settings) {
         super(settings);
         setDefaultState(this.stateManager.getDefaultState()
-                .with(WATERLOGGED, false));
+                .with(WATERLOGGED, false)
+                .with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 6, 14);
+
+    @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
 
+    @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
@@ -47,12 +53,10 @@ public class Dryer extends BlockWithEntity implements BlockEntityProvider, Water
                               PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
             NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
-
             if (screenHandlerFactory != null) {
                 player.openHandledScreen(screenHandlerFactory);
             }
         }
-
         return ActionResult.SUCCESS;
     }
 
@@ -61,8 +65,8 @@ public class Dryer extends BlockWithEntity implements BlockEntityProvider, Water
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof DryerBlockEntity) {
-                ItemScatterer.spawn(world, pos, (DryerBlockEntity)blockEntity);
-                world.updateComparators(pos,this);
+                ItemScatterer.spawn(world, pos, (DryerBlockEntity) blockEntity);
+                world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
@@ -77,10 +81,8 @@ public class Dryer extends BlockWithEntity implements BlockEntityProvider, Water
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, Items.DRYER_BLOCK_ENTITY, DryerBlockEntity::tick);
+        return world.isClient ? null : checkType(type, Items.DRYER_BLOCK_ENTITY, DryerBlockEntity::tick);
     }
-
-    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
@@ -104,7 +106,6 @@ public class Dryer extends BlockWithEntity implements BlockEntityProvider, Water
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 }

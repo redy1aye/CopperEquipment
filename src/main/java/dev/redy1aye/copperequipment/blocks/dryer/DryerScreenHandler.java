@@ -25,7 +25,7 @@ public class DryerScreenHandler extends ScreenHandler {
         super(Items.DRYER_SCREEN_HANDLER, syncId);
         checkSize(inventory, 3);
         this.inventory = inventory;
-        this.world = playerInventory.player.world;
+        this.world = playerInventory.player.getWorld();
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
 

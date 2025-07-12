@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "copperequipment:item/copper_helmet",
+    "layer1": "minecraft:trims/items/boots_trim_quartz"
+  }
+}

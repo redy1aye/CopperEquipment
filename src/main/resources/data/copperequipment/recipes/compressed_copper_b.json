@@ -1,10 +1,12 @@
 {
-  "type": "minecraft:smithing",
-  "base": {
-    "item": "minecraft:copper_block"
-  },
-  "addition": {
-    "item": "minecraft:copper_block"
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:copper_block"
+    }
   },
   "result": {
     "item": "copperequipment:compressed_copper",

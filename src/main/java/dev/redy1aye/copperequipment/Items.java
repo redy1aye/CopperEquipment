@@ -15,44 +15,38 @@ import dev.redy1aye.copperequipment.events.skins.CandySwordSkin;
 import dev.redy1aye.copperequipment.events.skins.SnowySkin;
 import dev.redy1aye.copperequipment.tools.CopperTools;
 import dev.redy1aye.copperequipment.tools.WaxedCopperTools;
+import dev.redy1aye.copperequipment.tools.CopperShears;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSetType;
-import net.minecraft.block.Material;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
+import net.minecraft.block.*;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.*;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.Registries;
-import net.fabricmc.fabric.api.object.builder.v1.block.type.BlockSetTypeRegistry;
 
 public class Items {
 
-    public static final BlockSetType COPPER_SET_TYPE = BlockSetTypeRegistry.register(
-        new Identifier(Mod.MOD_ID, "copper"),
-        BlockSoundGroup.COPPER,
-        SoundEvents.BLOCK_IRON_DOOR_CLOSE,
-        SoundEvents.BLOCK_IRON_DOOR_OPEN,
-        SoundEvents.BLOCK_IRON_TRAPDOOR_CLOSE,
-        SoundEvents.BLOCK_IRON_TRAPDOOR_OPEN,
-        SoundEvents.BLOCK_STONE_BUTTON_CLICK_OFF,
-        SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON,
-        SoundEvents.BLOCK_STONE_PRESSURE_PLATE_CLICK_OFF,
-        SoundEvents.BLOCK_STONE_PRESSURE_PLATE_CLICK_ON
-    );
+    public static final BlockSetType COPPER_SET_TYPE = new BlockSetType(Mod.MOD_ID + "copper");
+
+    public static final RegistryKey<ItemGroup> TAB_COPPER = RegistryKey.of(RegistryKeys.ITEM_GROUP, new Identifier(Mod.MOD_ID, "copperequipment_tab"));
 
     static boolean EnableButtons = Mod.CONFIG.CE_CFG.EnableButtons;
     static boolean EnableWaxed = Mod.CONFIG.WCE_CFG.EnableWaxed;
@@ -80,6 +74,7 @@ public class Items {
     public static final ToolItem COPPER_PICKAXE = new PickaxeItem(CopperTools.COPPER_TOOL, 4, -2.7f, new Item.Settings()) {};
     public static final ToolItem COPPER_AXE = new AxeItem(CopperTools.COPPER_TOOL, CopperAxeDamage, CopperAxeAttackSpeed, new Item.Settings()) {};
     public static final ToolItem COPPER_HOE = new HoeItem(CopperTools.COPPER_TOOL, 1, -0.9f, new Item.Settings()) {};
+    public static final CopperShears COPPER_SHEARS = new CopperShears(new Item.Settings(), false);
 
     public static final ArmorItem COPPER_HELMET = new ArmorItem(CopperArmor.COPPER_ARMOR, ArmorItem.Type.HELMET, new Item.Settings());
     public static final ArmorItem COPPER_CHESTPLATE = new ArmorItem(CopperArmor.COPPER_ARMOR, ArmorItem.Type.CHESTPLATE, new Item.Settings());
@@ -96,18 +91,19 @@ public class Items {
     public static final ToolItem WAXED_COPPER_PICKAXE = new PickaxeItem(WaxedCopperTools.WAXED_COPPER_TOOL, 4, -2.9f, new Item.Settings()) {};
     public static final ToolItem WAXED_COPPER_AXE = new AxeItem(WaxedCopperTools.WAXED_COPPER_TOOL, WaxedCopperAxeDamage, WaxedCopperAxeAttackSpeed, new Item.Settings()) {};
     public static final ToolItem WAXED_COPPER_HOE = new HoeItem(WaxedCopperTools.WAXED_COPPER_TOOL, 1, -1.1f, new Item.Settings()) {};
+    public static final CopperShears WAXED_COPPER_SHEARS = new CopperShears(new Item.Settings(), true);
 
     public static final ArmorItem WAXED_COPPER_HELMET = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, ArmorItem.Type.HELMET, new Item.Settings());
     public static final ArmorItem WAXED_COPPER_CHESTPLATE = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, ArmorItem.Type.CHESTPLATE, new Item.Settings());
     public static final ArmorItem WAXED_COPPER_LEGGINGS = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, ArmorItem.Type.LEGGINGS, new Item.Settings());
     public static final ArmorItem WAXED_COPPER_BOOTS = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, ArmorItem.Type.BOOTS, new Item.Settings());
 
-    public static final Block COPPER_BUTTON = new Buttons(FabricBlockSettings.of(Material.METAL).strength(0.5f, 0.5f).sounds(BlockSoundGroup.COPPER).collidable(false));
-    public static final Block COPPER_PRESSURE_PLATE = new PressurePlates(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.of(Material.METAL).strength(0.5f, 0.5f).requiresTool().sounds(BlockSoundGroup.COPPER).collidable(false));
+	public static final Block COPPER_BUTTON = new Buttons(FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).sounds(BlockSoundGroup.COPPER).collidable(false));
+    public static final Block COPPER_PRESSURE_PLATE = new PressurePlates(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).requiresTool().sounds(BlockSoundGroup.COPPER).collidable(false));
 
     public static BlockEntityType<DryerBlockEntity> DRYER_BLOCK_ENTITY;
-    public static final Block DRYER = new Dryer(FabricBlockSettings.of(Material.METAL).strength(0.9f, 0.9f).sounds(BlockSoundGroup.NETHERITE).nonOpaque());
-    public static final ScreenHandlerType<DryerScreenHandler> DRYER_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier(Mod.MOD_ID, "dryer"), DryerScreenHandler::new);
+    public static final Block DRYER = new Dryer(FabricBlockSettings.create().strength(0.9f).sounds(BlockSoundGroup.NETHERITE).nonOpaque());
+    public static final ScreenHandlerType<DryerScreenHandler> DRYER_SCREEN_HANDLER = new ExtendedScreenHandlerType<>((syncId, playerInventory, buf) -> new DryerScreenHandler(syncId, playerInventory, new SimpleInventory(3), new ArrayPropertyDelegate(2)));
 
     public static final Item XMAS_COOKIE = new XmasCookie(new Item.Settings().rarity(Rarity.EPIC)
             .food(new FoodComponent.Builder().hunger(2).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(StatusEffects.LUCK, 1200), 0.95f).build()));
@@ -124,11 +120,6 @@ public class Items {
     public static final ToolItem CANDY_DIAMOND_SWORD = new SwordItem(ToolMaterials.DIAMOND, 3, -2.4F, new Item.Settings().rarity(Rarity.RARE));
     public static final ToolItem CANDY_COPPER_SWORD = new SwordItem(CopperTools.COPPER_TOOL, CopperSwordDamage, CopperSwordAttackSpeed, new Item.Settings().rarity(Rarity.UNCOMMON));
 
-    public static final ItemGroup TAB_COPPER = FabricItemGroup.builder(new Identifier(Mod.MOD_ID, "copperequipment_tab"))
-            .displayName(Text.literal("Copper Equipment"))
-            .icon(() -> new ItemStack(COMPRESSED_COPPER))
-            .build();
-
     public static void registerItems() {
         ItemGroupEvents.modifyEntriesEvent(TAB_COPPER).register(entries -> {
             entries.add(COMPRESSED_COPPER);
@@ -140,6 +131,7 @@ public class Items {
             entries.add(COPPER_PICKAXE);
             entries.add(COPPER_AXE);
             entries.add(COPPER_HOE);
+            entries.add(COPPER_SHEARS);
             entries.add(COPPER_HELMET);
             entries.add(COPPER_CHESTPLATE);
             entries.add(COPPER_LEGGINGS);
@@ -151,6 +143,7 @@ public class Items {
                 entries.add(WAXED_COPPER_PICKAXE);
                 entries.add(WAXED_COPPER_AXE);
                 entries.add(WAXED_COPPER_HOE);
+                entries.add(WAXED_COPPER_SHEARS);
                 entries.add(WAXED_COPPER_HELMET);
                 entries.add(WAXED_COPPER_CHESTPLATE);
                 entries.add(WAXED_COPPER_LEGGINGS);
@@ -171,6 +164,7 @@ public class Items {
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_pickaxe"), COPPER_PICKAXE);
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_axe"), COPPER_AXE);
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_hoe"), COPPER_HOE);
+        Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_shears"), COPPER_SHEARS);
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_helmet"), COPPER_HELMET);
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_chestplate"), COPPER_CHESTPLATE);
         Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_leggings"), COPPER_LEGGINGS);
@@ -183,6 +177,7 @@ public class Items {
             Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "waxed_copper_pickaxe"), WAXED_COPPER_PICKAXE);
             Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "waxed_copper_axe"), WAXED_COPPER_AXE);
             Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "waxed_copper_hoe"), WAXED_COPPER_HOE);
+            Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "waxed_copper_shears"), WAXED_COPPER_SHEARS);
             Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "waxed_copper_helmet"), WAXED_COPPER_HELMET);
             Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "waxed_copper_chestplate"), WAXED_COPPER_CHESTPLATE);
             Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "waxed_copper_leggings"), WAXED_COPPER_LEGGINGS);
@@ -190,10 +185,13 @@ public class Items {
         }
 
         if (EnableButtons) {
-            Registry.register(Registries.BLOCK, new Identifier(Mod.MOD_ID, "copper_button"), COPPER_BUTTON);
-            Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_button"), new BlockItem(COPPER_BUTTON, new Item.Settings()));
             Registry.register(Registries.BLOCK, new Identifier(Mod.MOD_ID, "copper_pressure_plate"), COPPER_PRESSURE_PLATE);
-            Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_pressure_plate"), new BlockItem(COPPER_PRESSURE_PLATE, new Item.Settings()));
+            Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_pressure_plate"),
+                    new BlockItem(COPPER_PRESSURE_PLATE, new Item.Settings()));
+
+            Registry.register(Registries.BLOCK, new Identifier(Mod.MOD_ID, "copper_button"), COPPER_BUTTON);
+            Registry.register(Registries.ITEM, new Identifier(Mod.MOD_ID, "copper_button"),
+                    new BlockItem(COPPER_BUTTON, new Item.Settings()));
         }
 
         Registry.register(Registries.BLOCK, new Identifier(Mod.MOD_ID, "dryer"), DRYER);
