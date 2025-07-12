@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "copperequipment",
+    "version": "${version}",
+    "metadata": {
+      "name": "Copper Equipment",
+      "description": "A mod that adds copper equipment",
+      "contributors": {
+        "Redy1Aye": "Owner"
+      },
+      "contact": {
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/copper-equipment-fabric",
+		"sources": "https://github.com/Redy1aye/CopperEquipment",
+		"issues": "https://github.com/Redy1aye/CopperEquipment/issues"
+      },
+      "icon": "assets/copperequipment/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": "dev.redy1aye.copperequipment.Mod"
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.21.0"
+      },
+      {
+        "id": "quilted_fabric_api",
+        "versions": ">=7.4.0+0.90.0-1.20.1"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.20.1"
+      }
+    ]
+  },
+  "mixin": "copperequipment.mixins.json"
+}
