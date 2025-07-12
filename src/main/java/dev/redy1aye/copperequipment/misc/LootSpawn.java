@@ -20,6 +20,7 @@ public class LootSpawn {
     private static final Identifier MINESHAFT = new Identifier("minecraft", "chests/abandoned_mineshaft");
     private static final Identifier BASTION_TREASURE = new Identifier("minecraft", "chests/bastion_treasure");
     private static final Identifier BASTION_OTHER = new Identifier("minecraft", "chests/bastion_other");
+    private static final Identifier VILLAGE_SHEPHERD = new Identifier("minecraft", "chests/village/village_shepherd");
 
     /* private static final Identifier COPPER_ORE
             = new Identifier("minecraft", "blocks/copper_ore"); */
@@ -193,6 +194,15 @@ public class LootSpawn {
                         .apply(EnchantRandomlyLootFunction.builder())
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
                 tableBuilder.pool(poolBuilder11.build());
+            }
+
+            if (VILLAGE_SHEPHERD.equals(key)) {
+                LootPool.Builder poolBuilder = new LootPool.Builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.20f))
+                        .with(ItemEntry.builder(Items.COPPER_SHEARS))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)));
+                tableBuilder.pool(poolBuilder.build());
             }
 
             /* if(COPPER_ORE.equals(id)) {

@@ -2,13 +2,18 @@ package dev.redy1aye.copperequipment;
 
 import dev.redy1aye.copperequipment.blocks.dryer.DryerScreen;
 import dev.redy1aye.copperequipment.misc.LootSpawn;
-
 import net.fabricmc.api.ModInitializer;
-
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 
 public class Mod implements ModInitializer {
 
@@ -22,8 +27,13 @@ public class Mod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-       Items.registerItems();
-       LootSpawn.registerItems();
-       // ScreenRegistry.register(Items.DRYER_SCREEN_HANDLER, DryerScreen::new);
+        Items.registerItems();
+        LootSpawn.registerItems();
+        // ScreenRegistry.register(Items.DRYER_SCREEN_HANDLER, DryerScreen::new);
+
+        Registry.register(Registries.ITEM_GROUP, Items.TAB_COPPER, FabricItemGroup.builder()
+                .displayName(Text.literal("Copper Equipment"))
+                .icon(() -> new ItemStack(Items.COMPRESSED_COPPER))
+                .build());
     }
 }

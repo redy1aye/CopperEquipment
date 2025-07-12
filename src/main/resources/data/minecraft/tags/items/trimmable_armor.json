@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "copperequipment:copper_helmet",
+    "copperequipment:copper_chestplate",
+    "copperequipment:copper_leggings",
+    "copperequipment:copper_boots",
+    "copperequipment:waxed_copper_helmet",
+    "copperequipment:waxed_copper_chestplate",
+    "copperequipment:waxed_copper_leggings",
+    "copperequipment:waxed_copper_boots"
+  ]
+}
