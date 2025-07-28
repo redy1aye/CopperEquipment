@@ -7,7 +7,6 @@ import dev.redy1aye.copperequipment.blocks.PressurePlates;
 import dev.redy1aye.copperequipment.blocks.dryer.DryerScreenHandler;
 import dev.redy1aye.copperequipment.blocks.dryer.Dryer;
 import dev.redy1aye.copperequipment.blocks.dryer.DryerBlockEntity;
-import dev.redy1aye.copperequipment.blocks.dryer.DryerRecipes;
 import dev.redy1aye.copperequipment.events.christmas.SnowyCopperArmor;
 import dev.redy1aye.copperequipment.events.christmas.XmasCandyCane;
 import dev.redy1aye.copperequipment.events.christmas.XmasCookie;
@@ -22,7 +21,6 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.block.*;
-import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -98,7 +96,7 @@ public class Items {
     public static final ArmorItem WAXED_COPPER_LEGGINGS = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, ArmorItem.Type.LEGGINGS, new Item.Settings());
     public static final ArmorItem WAXED_COPPER_BOOTS = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, ArmorItem.Type.BOOTS, new Item.Settings());
 
-	public static final Block COPPER_BUTTON = new Buttons(FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).sounds(BlockSoundGroup.COPPER).collidable(false));
+    public static final Block COPPER_BUTTON = new Buttons(FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).sounds(BlockSoundGroup.COPPER).collidable(false));
     public static final Block COPPER_PRESSURE_PLATE = new PressurePlates(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).requiresTool().sounds(BlockSoundGroup.COPPER).collidable(false));
 
     public static BlockEntityType<DryerBlockEntity> DRYER_BLOCK_ENTITY;
@@ -212,10 +210,5 @@ public class Items {
 
         DRYER_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("copperequipment", "dryer"),
                 FabricBlockEntityTypeBuilder.create(DryerBlockEntity::new, DRYER).build(null));
-
-        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(Mod.MOD_ID, DryerRecipes.Serializer.ID),
-                DryerRecipes.Serializer.INSTANCE);
-        Registry.register(Registries.RECIPE_TYPE, new Identifier(Mod.MOD_ID, DryerRecipes.Type.ID),
-                DryerRecipes.Type.INSTANCE);
     }
 }

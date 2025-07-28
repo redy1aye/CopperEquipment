@@ -81,7 +81,7 @@ public class Dryer extends BlockWithEntity implements Waterloggable {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient ? null : checkType(type, Items.DRYER_BLOCK_ENTITY, DryerBlockEntity::tick);
+        return null;
     }
 
     @Override
