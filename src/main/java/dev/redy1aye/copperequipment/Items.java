@@ -96,8 +96,8 @@ public class Items {
     public static final ArmorItem WAXED_COPPER_LEGGINGS = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, ArmorItem.Type.LEGGINGS, new Item.Settings());
     public static final ArmorItem WAXED_COPPER_BOOTS = new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, ArmorItem.Type.BOOTS, new Item.Settings());
 
-    public static final Block COPPER_BUTTON = new Buttons(FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).sounds(BlockSoundGroup.COPPER).collidable(false));
-    public static final Block COPPER_PRESSURE_PLATE = new PressurePlates(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).requiresTool().sounds(BlockSoundGroup.COPPER).collidable(false));
+    public static final Block COPPER_BUTTON = new Buttons(Items.COPPER_SET_TYPE, FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).sounds(BlockSoundGroup.COPPER).collidable(false));
+    public static final Block COPPER_PRESSURE_PLATE = new PressurePlates(Items.COPPER_SET_TYPE, FabricBlockSettings.copyOf(Blocks.COPPER_BLOCK).strength(0.5f).requiresTool().sounds(BlockSoundGroup.COPPER).collidable(false));
 
     public static BlockEntityType<DryerBlockEntity> DRYER_BLOCK_ENTITY;
     public static final Block DRYER = new Dryer(FabricBlockSettings.create().strength(0.9f).sounds(BlockSoundGroup.NETHERITE).nonOpaque());

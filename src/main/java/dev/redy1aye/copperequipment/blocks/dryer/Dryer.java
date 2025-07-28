@@ -1,5 +1,6 @@
 package dev.redy1aye.copperequipment.blocks.dryer;
 
+import com.mojang.serialization.MapCodec;
 import dev.redy1aye.copperequipment.Items;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -37,6 +38,11 @@ public class Dryer extends BlockWithEntity implements Waterloggable {
     }
 
     protected static final VoxelShape SHAPE = Block.createCuboidShape(2, 0, 2, 14, 6, 14);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return createCodec(Dryer::new);
+    }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
