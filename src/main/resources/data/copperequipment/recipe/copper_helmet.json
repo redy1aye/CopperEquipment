@@ -1,0 +1,16 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+        "ccc",
+        "c c"
+    ],
+    "key": {
+        "c": {
+            "item": "copperequipment:compressed_copper"
+        }
+    },
+  "result": {
+    "id": "copperequipment:copper_helmet",
+    "count": 1
+  }
+}

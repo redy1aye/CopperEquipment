@@ -1,6 +1,5 @@
 package dev.redy1aye.copperequipment.tools;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
@@ -18,18 +17,18 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.state.property.Properties;
+import net.minecraft.entity.EquipmentSlot;
 
 public class CopperShears extends ShearsItem {
     public static final int COPPER_SHEARS_DURABILITY = 119;
     public static final int WAXED_COPPER_SHEARS_DURABILITY = 179;
 
-    private final int maxDamage;
+    private final boolean isWaxed;
 
     public CopperShears(Settings settings, boolean isWaxed) {
         super(settings.maxDamage(isWaxed ? WAXED_COPPER_SHEARS_DURABILITY : COPPER_SHEARS_DURABILITY));
-        this.maxDamage = isWaxed ? WAXED_COPPER_SHEARS_DURABILITY : COPPER_SHEARS_DURABILITY;
+        this.isWaxed = isWaxed;
     }
 
     @Override
@@ -44,30 +43,39 @@ public class CopperShears extends ShearsItem {
         BlockState state = world.getBlockState(pos);
         PlayerEntity player = context.getPlayer();
         ItemStack stack = context.getStack();
+        Hand hand = context.getHand();
 
         if (state.isOf(Blocks.PUMPKIN)) {
             if (!world.isClient) {
                 world.setBlockState(pos, Blocks.CARVED_PUMPKIN.getDefaultState().with(Properties.HORIZONTAL_FACING, context.getPlayer().getHorizontalFacing().getOpposite()), 11);
                 world.playSound(null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-                stack.damage(1, player, (p) -> p.sendToolBreakStatus(context.getHand()));
+                stack.damage(1, player, hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                 world.spawnEntity(new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, new ItemStack(Items.PUMPKIN_SEEDS, 4)));
                 return ActionResult.SUCCESS;
             }
             return ActionResult.CONSUME;
         }
 
-        return ActionResult.PASS;
+        if (!isWaxed && state.isOf(Blocks.HONEYCOMB_BLOCK)) {
+            if (!world.isClient && player != null) {
+                ItemStack waxedShears = new ItemStack(dev.redy1aye.copperequipment.Items.WAXED_COPPER_SHEARS);
+                waxedShears.setCount(1);
+                stack.decrement(1);
+                player.setStackInHand(hand, waxedShears);
+                return ActionResult.SUCCESS;
+            }
+            return ActionResult.CONSUME;
+        }
+
+        return super.useOnBlock(context);
     }
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if (entity instanceof SheepEntity sheep) {
-            if (!entity.getWorld().isClient && sheep.isShearable()) {
-                sheep.sheared(SoundCategory.PLAYERS);
-                stack.damage(1, user, (p) -> p.sendToolBreakStatus(hand));
-                return ActionResult.SUCCESS;
-            }
-            return ActionResult.CONSUME;
+        if (entity instanceof SheepEntity sheep && !entity.getWorld().isClient && sheep.isShearable()) {
+            sheep.sheared(SoundCategory.PLAYERS);
+            stack.damage(1, user, hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
+            return ActionResult.SUCCESS;
         }
         return super.useOnEntity(stack, user, entity, hand);
     }
@@ -75,28 +83,12 @@ public class CopperShears extends ShearsItem {
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         if (!world.isClient && !state.isIn(BlockTags.FIRE)) {
-            stack.damage(1, miner, (e) -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+            stack.damage(1, miner, EquipmentSlot.MAINHAND);
             if (state.isIn(BlockTags.LEAVES)) {
                 world.playSound(null, pos, SoundEvents.BLOCK_GRASS_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 world.spawnEntity(new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, new ItemStack(state.getBlock().asItem())));
             }
         }
-        return state.isIn(BlockTags.WOOL) || state.isOf(Blocks.COBWEB) || state.isOf(Blocks.VINE) || state.isOf(Blocks.GLOW_LICHEN) || state.isIn(BlockTags.LEAVES);
-    }
-
-    @Override
-    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state) {
-        if (state.isOf(Blocks.COBWEB) || state.isOf(Blocks.VINE) || state.isOf(Blocks.GLOW_LICHEN) || state.isIn(BlockTags.LEAVES)) {
-            return 15.0F;
-        }
-        if (state.isIn(BlockTags.WOOL)) {
-            return 5.0F;
-        }
-        return super.getMiningSpeedMultiplier(stack, state);
-    }
-
-    @Override
-    public boolean isSuitableFor(BlockState state) {
         return state.isIn(BlockTags.WOOL) || state.isOf(Blocks.COBWEB) || state.isOf(Blocks.VINE) || state.isOf(Blocks.GLOW_LICHEN) || state.isIn(BlockTags.LEAVES);
     }
 }

@@ -19,6 +19,8 @@ public class CopperEquipmentConfig extends PartitioningSerializer.GlobalData {
         public int CopperChestplateProtection = 4; // Default = 4.
         public int CopperLeggingsProtection = 3; // Default = 3.
         public int CopperBootsProtection = 1; // Default = 1.
+        @Comment("Durability for copper horse armor.")
+        public int CopperHorseArmorDurability = 4; // Default = 4.
         @Comment("Copper sword and axe stats.")
         public int CopperSwordDamage = 6; // Default = 6.
         public float CopperSwordAttackSpeed = -2.3f; // Default = -2.3.
@@ -38,6 +40,8 @@ public class CopperEquipmentConfig extends PartitioningSerializer.GlobalData {
             public int WaxedCopperChestplateProtection = 2; // Default = 2.
             public int WaxedCopperLeggingsProtection = 2; // Default = 2.
             public int WaxedCopperBootsProtection = 1; // Default = 1.
+			@Comment("Durability for copper horse armor.")
+			public int WaxedCopperHorseArmorDurability = 3; // Default = 3.
             @Comment("Waxed copper sword and axe stats.")
             public int WaxedCopperSwordDamage = 6; // Default = 6.
             public float WaxedCopperSwordAttackSpeed = -2.5f; // Default = -2.5.

@@ -1,244 +1,244 @@
 package dev.redy1aye.copperequipment.misc;
 
 import dev.redy1aye.copperequipment.Items;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.EnchantRandomlyLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
 public class LootSpawn {
 
-    private static final Identifier DESERT_PYRAMID = new Identifier("minecraft", "chests/desert_pyramid");
-    private static final Identifier JUNGLE_TEMPLE = new Identifier("minecraft", "chests/jungle_temple");
-    private static final Identifier SPAWNER = new Identifier("minecraft", "chests/simple_dungeon");
-    private static final Identifier END_CITY = new Identifier("minecraft", "chests/end_city_treasure");
-    private static final Identifier MINESHAFT = new Identifier("minecraft", "chests/abandoned_mineshaft");
-    private static final Identifier BASTION_TREASURE = new Identifier("minecraft", "chests/bastion_treasure");
-    private static final Identifier BASTION_OTHER = new Identifier("minecraft", "chests/bastion_other");
-    private static final Identifier VILLAGE_SHEPHERD = new Identifier("minecraft", "chests/village/village_shepherd");
+    private static final RegistryKey<LootTable> DESERT_PYRAMID = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "chests/desert_pyramid"));
+    private static final RegistryKey<LootTable> JUNGLE_TEMPLE = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "chests/jungle_temple"));
+    private static final RegistryKey<LootTable> SPAWNER = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "chests/simple_dungeon"));
+    private static final RegistryKey<LootTable> END_CITY = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "chests/end_city_treasure"));
+    private static final RegistryKey<LootTable> MINESHAFT = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "chests/abandoned_mineshaft"));
+    private static final RegistryKey<LootTable> BASTION_TREASURE = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "chests/bastion_treasure"));
+    private static final RegistryKey<LootTable> BASTION_OTHER = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "chests/bastion_other"));
+    private static final RegistryKey<LootTable> VILLAGE_SHEPHERD = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "chests/village/village_shepherd"));
 
-    /* private static final Identifier COPPER_ORE
-            = new Identifier("minecraft", "blocks/copper_ore"); */
+    /* private static final RegistryKey<LootTable> COPPER_ORE
+        = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "blocks/copper_ore")); */
 
     public static void registerItems() {
-        LootTableEvents.MODIFY.register((resourceManager, lootManager, key, tableBuilder, source) -> {
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+            RegistryWrapper.WrapperLookup registryLookup = registries;
+
             if (DESERT_PYRAMID.equals(key)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+                LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.27f))
                         .with(ItemEntry.builder(Items.COPPER_HORSE_ARMOR))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 3f)));
-                tableBuilder.pool(poolBuilder.build());
+                tableBuilder.pool(poolBuilder);
             }
 
             if (MINESHAFT.equals(key)) {
-                LootPool.Builder poolBuilder1 = new LootPool.Builder()
+                LootPool.Builder poolBuilder1 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.43f))
                         .with(ItemEntry.builder(Items.COPPER_HORSE_ARMOR))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder1.build());
+                tableBuilder.pool(poolBuilder1);
 
-                LootPool.Builder poolBuilder2 = new LootPool.Builder()
+                LootPool.Builder poolBuilder2 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.24f))
                         .with(ItemEntry.builder(net.minecraft.item.Items.COPPER_INGOT))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 7f)));
-                tableBuilder.pool(poolBuilder2.build());
+                tableBuilder.pool(poolBuilder2);
 
-                LootPool.Builder poolBuilder3 = new LootPool.Builder()
+                LootPool.Builder poolBuilder3 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.1f))
                         .with(ItemEntry.builder(net.minecraft.item.Items.RAW_COPPER_BLOCK))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)));
-                tableBuilder.pool(poolBuilder3.build());
+                tableBuilder.pool(poolBuilder3);
 
-                LootPool.Builder poolBuilder4 = new LootPool.Builder()
+                LootPool.Builder poolBuilder4 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.07f))
                         .with(ItemEntry.builder(Items.COPPER_PICKAXE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)));
-                tableBuilder.pool(poolBuilder4.build());
+                tableBuilder.pool(poolBuilder4);
             }
 
             if (SPAWNER.equals(key)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+                LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.37f))
                         .with(ItemEntry.builder(Items.COPPER_HORSE_ARMOR))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)));
-                tableBuilder.pool(poolBuilder.build());
+                tableBuilder.pool(poolBuilder);
             }
 
             if (JUNGLE_TEMPLE.equals(key)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+                LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.68f))
                         .with(ItemEntry.builder(Items.COPPER_HORSE_ARMOR))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder.build());
+                tableBuilder.pool(poolBuilder);
             }
 
             if (BASTION_TREASURE.equals(key)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+                LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.09f))
                         .with(ItemEntry.builder(Items.COMPRESSED_COPPER))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2f, 9f)));
-                tableBuilder.pool(poolBuilder.build());
+                tableBuilder.pool(poolBuilder);
             }
 
             if (BASTION_OTHER.equals(key)) {
-                LootPool.Builder poolBuilder1 = new LootPool.Builder()
+                LootPool.Builder poolBuilder1 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.14f))
                         .with(ItemEntry.builder(net.minecraft.item.Items.COPPER_INGOT))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 8f)));
-                tableBuilder.pool(poolBuilder1.build());
+                tableBuilder.pool(poolBuilder1);
 
-                LootPool.Builder poolBuilder2 = new LootPool.Builder()
+                LootPool.Builder poolBuilder2 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(net.minecraft.item.Items.COPPER_BLOCK))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)));
-                tableBuilder.pool(poolBuilder2.build());
+                tableBuilder.pool(poolBuilder2);
             }
 
             if (END_CITY.equals(key)) {
-                LootPool.Builder poolBuilder1 = new LootPool.Builder()
+                LootPool.Builder poolBuilder1 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.12f))
                         .with(ItemEntry.builder(Items.COPPER_HORSE_ARMOR))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder1.build());
+                tableBuilder.pool(poolBuilder1);
 
-                LootPool.Builder poolBuilder2 = new LootPool.Builder()
+                LootPool.Builder poolBuilder2 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.09f))
                         .with(ItemEntry.builder(Items.COMPRESSED_COPPER))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2f, 9f)));
-                tableBuilder.pool(poolBuilder2.build());
+                tableBuilder.pool(poolBuilder2);
 
-                LootPool.Builder poolBuilder3 = new LootPool.Builder()
+                LootPool.Builder poolBuilder3 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.11f))
                         .with(ItemEntry.builder(net.minecraft.item.Items.COPPER_BLOCK))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder3.build());
+                tableBuilder.pool(poolBuilder3);
 
-                LootPool.Builder poolBuilder4 = new LootPool.Builder()
+                LootPool.Builder poolBuilder4 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(Items.COPPER_SWORD))
-                        .apply(EnchantRandomlyLootFunction.builder())
+                        .apply(EnchantRandomlyLootFunction.builder(registryLookup))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder4.build());
+                tableBuilder.pool(poolBuilder4);
 
-                LootPool.Builder poolBuilder5 = new LootPool.Builder()
+                LootPool.Builder poolBuilder5 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(Items.COPPER_SHOVEL))
-                        .apply(EnchantRandomlyLootFunction.builder())
+                        .apply(EnchantRandomlyLootFunction.builder(registryLookup))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder5.build());
+                tableBuilder.pool(poolBuilder5);
 
-                LootPool.Builder poolBuilder6 = new LootPool.Builder()
+                LootPool.Builder poolBuilder6 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(Items.COPPER_PICKAXE))
-                        .apply(EnchantRandomlyLootFunction.builder())
+                        .apply(EnchantRandomlyLootFunction.builder(registryLookup))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder6.build());
+                tableBuilder.pool(poolBuilder6);
 
-                LootPool.Builder poolBuilder7 = new LootPool.Builder()
+                LootPool.Builder poolBuilder7 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(Items.COPPER_AXE))
-                        .apply(EnchantRandomlyLootFunction.builder())
+                        .apply(EnchantRandomlyLootFunction.builder(registryLookup))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder7.build());
+                tableBuilder.pool(poolBuilder7);
 
-                LootPool.Builder poolBuilder8 = new LootPool.Builder()
+                LootPool.Builder poolBuilder8 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(Items.COPPER_HELMET))
-                        .apply(EnchantRandomlyLootFunction.builder())
+                        .apply(EnchantRandomlyLootFunction.builder(registryLookup))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder8.build());
+                tableBuilder.pool(poolBuilder8);
 
-                LootPool.Builder poolBuilder9 = new LootPool.Builder()
+                LootPool.Builder poolBuilder9 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(Items.COPPER_CHESTPLATE))
-                        .apply(EnchantRandomlyLootFunction.builder())
+                        .apply(EnchantRandomlyLootFunction.builder(registryLookup))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder9.build());
+                tableBuilder.pool(poolBuilder9);
 
-                LootPool.Builder poolBuilder10 = new LootPool.Builder()
+                LootPool.Builder poolBuilder10 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(Items.COPPER_LEGGINGS))
-                        .apply(EnchantRandomlyLootFunction.builder())
+                        .apply(EnchantRandomlyLootFunction.builder(registryLookup))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder10.build());
+                tableBuilder.pool(poolBuilder10);
 
-                LootPool.Builder poolBuilder11 = new LootPool.Builder()
+                LootPool.Builder poolBuilder11 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.02f))
                         .with(ItemEntry.builder(Items.COPPER_BOOTS))
-                        .apply(EnchantRandomlyLootFunction.builder())
+                        .apply(EnchantRandomlyLootFunction.builder(registryLookup))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 2f)));
-                tableBuilder.pool(poolBuilder11.build());
+                tableBuilder.pool(poolBuilder11);
             }
 
             if (VILLAGE_SHEPHERD.equals(key)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+                LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.20f))
                         .with(ItemEntry.builder(Items.COPPER_SHEARS))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)));
-                tableBuilder.pool(poolBuilder.build());
+                tableBuilder.pool(poolBuilder);
             }
 
-            /* if(COPPER_ORE.equals(id)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+            /* if (COPPER_ORE.equals(key)) {
+               LootPool.Builder poolBuilder1 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.40f))
                         .with(ItemEntry.builder(Items.XMAS_COOKIE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)));
-                tableBuilder.pool(poolBuilder.build());
-            }
+                tableBuilder.pool(poolBuilder1);
 
-            if(COPPER_ORE.equals(id)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+                LootPool.Builder poolBuilder2 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.40f))
                         .with(ItemEntry.builder(Items.XMAS_CANDY_CANE))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)));
-                tableBuilder.pool(poolBuilder.build());
-            }
+                tableBuilder.pool(poolBuilder2);
 
-            if(COPPER_ORE.equals(id)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+                LootPool.Builder poolBuilder3 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.01f))
                         .with(ItemEntry.builder(Items.SKIN_SNOWY))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)));
-                tableBuilder.pool(poolBuilder.build());
-            }
+                tableBuilder.pool(poolBuilder3);
 
-            if(COPPER_ORE.equals(id)) {
-                LootPool.Builder poolBuilder = new LootPool.Builder()
+                LootPool.Builder poolBuilder4 = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.001f))
                         .with(ItemEntry.builder(Items.SKIN_CANDY_SWORD))
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)));
-                tableBuilder.pool(poolBuilder.build());
+                tableBuilder.pool(poolBuilder4);
             } */
         });
     }

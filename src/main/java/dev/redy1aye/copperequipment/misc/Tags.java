@@ -6,8 +6,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.registry.Registries;
 
 public class Tags {
+    public static final TagKey<Item> COPPER_STUFF = TagKey.of(Registries.ITEM.getKey(), Identifier.of("copperequipment", "copper_stuff"));
+    public static final TagKey<Item> WAXED_COPPER_STUFF = TagKey.of(Registries.ITEM.getKey(), Identifier.of("copperequipment", "waxed_copper_stuff"));
+
+    /* 1.20.6-
     public static final TagKey<Item> COPPER_STUFF = TagKey.of(Registries.ITEM.getKey(), new Identifier("copperequipment", "copper_stuff"));
-    public static final TagKey<Item> WAXED_COPPER_STUFF = TagKey.of(Registries.ITEM.getKey(), new Identifier("copperequipment", "waxed_copper_stuff"));
+    public static final TagKey<Item> WAXED_COPPER_STUFF = TagKey.of(Registries.ITEM.getKey(), new Identifier("copperequipment", "waxed_copper_stuff")); */
 
     /* 1.19.2-
     public static final Tag<Item> COPPER_STUFF = TagFactory.ITEM.create(new Identifier("copperequipment", "copper_stuff"));

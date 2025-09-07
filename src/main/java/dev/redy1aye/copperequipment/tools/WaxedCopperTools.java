@@ -1,10 +1,13 @@
 package dev.redy1aye.copperequipment.tools;
 
 import dev.redy1aye.copperequipment.Mod;
-
-import net.minecraft.item.Items;
+import net.minecraft.block.Block;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
 
 public class WaxedCopperTools implements ToolMaterial {
 
@@ -13,33 +16,31 @@ public class WaxedCopperTools implements ToolMaterial {
     static int WaxedCopperToolsDurability = Mod.CONFIG.WCE_CFG.WaxedCopperToolsDurability;
     static int WaxedCopperItemMiningLevel = Mod.CONFIG.WCE_CFG.WaxedCopperToolsMiningLevel;
 
-    @Override
     public int getDurability() {
         return WaxedCopperToolsDurability;
     }
 
-    @Override
     public float getMiningSpeedMultiplier() {
         return 4;
     }
 
-    @Override
     public float getAttackDamage() {
         return -1;
     }
 
-    @Override
     public int getMiningLevel() {
         return WaxedCopperItemMiningLevel;
     }
 
-    @Override
     public int getEnchantability() {
         return 18;
     }
 
-    @Override
     public Ingredient getRepairIngredient() {
         return Ingredient.ofItems(Items.COPPER_INGOT);
+    }
+
+    public TagKey<Block> getInverseTag() {
+        return TagKey.of(RegistryKeys.BLOCK, Identifier.of("minecraft", "incorrect_for_copper_tool"));
     }
 }

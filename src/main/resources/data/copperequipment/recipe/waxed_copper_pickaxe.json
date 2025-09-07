@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#H"
+  ],
+  "key": {
+    "#": {
+      "item": "copperequipment:copper_pickaxe"
+    },
+    "H": {
+      "item": "minecraft:honeycomb"
+    }
+  },
+  "result": {
+    "id": "copperequipment:waxed_copper_pickaxe",
+    "count": 1
+  }
+}

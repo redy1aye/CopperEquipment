@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#H"
+  ],
+  "key": {
+    "#": {
+      "item": "copperequipment:copper_leggings"
+    },
+    "H": {
+      "item": "minecraft:honeycomb"
+    }
+  },
+  "result": {
+    "id": "copperequipment:waxed_copper_leggings",
+    "count": 1
+  }
+}

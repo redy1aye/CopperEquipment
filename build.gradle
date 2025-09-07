@@ -1,19 +1,13 @@
 plugins {
     id 'java'
-    id 'fabric-loom' version '1.6.12'
+	id 'fabric-loom' version "${loom_version}"
     id 'maven-publish'
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-    withSourcesJar()
 }
 
 version = project.mod_version
 group = project.maven_group
 base {
-    archivesName = "${project.archives_base_name}"
+    archivesName = project.archives_base_name
 }
 
 repositories {
@@ -27,7 +21,7 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modApi("me.shedaniel.cloth:cloth-config-fabric:13.0.138") {
+    modApi("me.shedaniel.cloth:cloth-config-fabric:15.0.140") {
         exclude group: "net.fabricmc.fabric-api"
     }
 }
@@ -40,8 +34,13 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
-    options.release = 17
+	it.options.release = 21
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
