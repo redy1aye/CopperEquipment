@@ -1,7 +1,7 @@
 package dev.redy1aye.copperequipment.armor;
 
 import dev.redy1aye.copperequipment.Mod;
-import dev.redy1aye.copperequipment.Items;
+import dev.redy1aye.copperequipment.misc.Tags;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -27,7 +27,7 @@ public class WaxedCopperArmor {
         }),
         12,
         SoundEvents.ITEM_ARMOR_EQUIP_IRON,
-        () -> Ingredient.ofItems(Items.WAXED_COPPER_NUGGET),
+        () -> Ingredient.fromTag(Tags.COPPER_INGOTS),
         List.of(new ArmorMaterial.Layer(Identifier.of("copperequipment", "waxed_copper"))),
         0.5f,
         0.0f

@@ -1,13 +1,17 @@
 package dev.redy1aye.copperequipment.misc;
 
 import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.registry.Registries;
 
 public class Tags {
-    public static final TagKey<Item> COPPER_STUFF = TagKey.of(Registries.ITEM.getKey(), Identifier.of("copperequipment", "copper_stuff"));
-    public static final TagKey<Item> WAXED_COPPER_STUFF = TagKey.of(Registries.ITEM.getKey(), Identifier.of("copperequipment", "waxed_copper_stuff"));
+    public static final TagKey<Item> COPPER_STUFF =
+            TagKey.of(Registries.ITEM.getKey(), Identifier.of("copperequipment", "copper_stuff"));
+    public static final TagKey<Item> WAXED_COPPER_STUFF =
+            TagKey.of(Registries.ITEM.getKey(), Identifier.of("copperequipment", "waxed_copper_stuff"));
+    public static final TagKey<Item> COPPER_INGOTS =
+            TagKey.of(Registries.ITEM.getKey(), Identifier.of("c", "copper_ingots"));
 
     /* 1.20.6-
     public static final TagKey<Item> COPPER_STUFF = TagKey.of(Registries.ITEM.getKey(), new Identifier("copperequipment", "copper_stuff"));

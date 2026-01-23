@@ -1,6 +1,7 @@
 package dev.redy1aye.copperequipment.tools;
 
 import dev.redy1aye.copperequipment.Mod;
+import dev.redy1aye.copperequipment.misc.Tags;
 import net.minecraft.block.Block;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.Items;
@@ -37,7 +38,7 @@ public class WaxedCopperTools implements ToolMaterial {
     }
 
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.COPPER_INGOT);
+        return Ingredient.fromTag(Tags.COPPER_INGOTS);
     }
 
     public TagKey<Block> getInverseTag() {
